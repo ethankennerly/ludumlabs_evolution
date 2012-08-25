@@ -20,24 +20,22 @@ package com.ludumlabs.evolution
             mobiles = new FlxGroup();
             
             player = new PlayerSprite(FlxG.width / 2, FlxG.height / 2);
-            add(player);
             mobiles.add(player);
             
             enemies = new FlxGroup();
             var enemy:EnemySprite = new EnemySprite(FlxG.width / 4, FlxG.height / 4);
             enemies.add(enemy);
-            mobiles.add(enemy);
+            mobiles.add(enemies);
             
-            add(enemies);
+            add(mobiles);
             
             add(new FlxText(0, 0, 200, "Press arrow keys to move"));
         }
 
         override public function update():void
         {
+            FlxG.collide(level.mainLayer,mobiles); //putting this after updateInput makes a weird bobbing behavior while running into the wall
             player.updateInput();
-            
-            FlxG.collide(level.mainLayer,mobiles);
             
             for each (var enemy:EnemySprite in enemies.members) {
                 enemy.targetX = Math.round(player.x);
