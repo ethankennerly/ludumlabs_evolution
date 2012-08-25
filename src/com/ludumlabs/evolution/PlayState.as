@@ -8,10 +8,9 @@ package com.ludumlabs.evolution
         public var enemies:FlxGroup;
         public var mobiles:FlxGroup;
         
-        public var level:BaseLevel;
-		public var level_first:Level_firstLevel;
+        public var level:Level_firstLevel;
         
-        public static function onLoadObject(obj:Object, layer:FlxGroup, level:BaseLevel, properties:Array):void {}
+        //public static function onLoadObject(obj:Object, layer:FlxGroup, level:BaseLevel, properties:Array):void {}
 
         override public function create():void
         {
@@ -38,8 +37,7 @@ package com.ludumlabs.evolution
         {
             player.updateInput();
             
-            //TODO:
-            //level.hitTilemaps.collide(mobiles);
+            FlxG.collide(level.mainLayer,mobiles);
             
             for each (var enemy:EnemySprite in enemies.members) {
                 enemy.targetX = player.x;
