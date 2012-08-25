@@ -1,6 +1,7 @@
 package com.ludumlabs.evolution
 {
     import org.flixel.*;
+    import flash.utils.getQualifiedClassName;
 
     public class PlayState extends FlxState
     {
@@ -14,22 +15,22 @@ package com.ludumlabs.evolution
 
         override public function create():void
         {
-            FlxG.levels = [Level_firstLevel];
-            level = new Level_firstLevel();
-            
-            mobiles = new FlxGroup();
-            
-            player = new PlayerSprite(FlxG.width / 2, FlxG.height / 2);
-            mobiles.add(player);
             
             enemies = new FlxGroup();
-            var enemy:EnemySprite = new EnemySprite(FlxG.width / 4, FlxG.height / 4);
-            enemies.add(enemy);
+            mobiles = new FlxGroup();
+            
+            FlxG.levels = [Level_firstLevel];
+            level = new Level_firstLevel(true, onAddSpriteCallback);
+            
+            mobiles.add(player);
             mobiles.add(enemies);
             
-            add(mobiles);
-            
             add(new FlxText(0, 0, 200, "Press arrow keys to move"));
+        }
+        
+        protected function onAddSpriteCallback(newSprite:FlxSprite, layerGroup:FlxGroup):void
+            if(newSprite is EnemySprite) enemies.add(EnemySprite(newSprite));
+            if(newSprite is PlayerSprite) player = PlayerSprite(newSprite);
         }
 
         override public function update():void
@@ -41,7 +42,7 @@ package com.ludumlabs.evolution
                 enemy.targetX = Math.round(player.x);
                 enemy.targetY = Math.round(player.y);
             }
-            FlxG.overlap(enemies, player, overlapEnemy);			
+            FlxG.overlap(enemies, player, overlapEnemy);
             super.update();
         }
 

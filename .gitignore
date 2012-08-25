@@ -16,5 +16,8 @@ SymDepend.cache
 *.swo
 *.swn
 
+# DAME backup file
+/*.dam.bak
+
 # Compiled, avoid merge conflict
 bin/*.swf

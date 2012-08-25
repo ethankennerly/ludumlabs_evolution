@@ -33,5 +33,6 @@ package com.ludumlabs.evolution
 			return obj;
 		}
 
+		public function addSpritesForLayerGroup1Layer2(onAddCallback:Function = null):void { }
 	}
 }

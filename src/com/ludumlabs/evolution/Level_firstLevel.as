@@ -13,6 +13,7 @@ package com.ludumlabs.evolution
 		public var layerGroup1Map1:FlxTilemap;
 
 		//Sprites
+		public var Group1Layer2Group:FlxGroup = new FlxGroup;
 
 
 		public function Level_firstLevel(addToStage:Boolean = true, onAddSpritesCallback:Function = null)
@@ -27,10 +28,12 @@ package com.ludumlabs.evolution
 
 			//Add layers to the master group in correct order.
 			masterLayer.add(layerGroup1Map1);
+			masterLayer.add(Group1Layer2Group);
 
 
 			if ( addToStage )
 			{
+				addSpritesForLayerGroup1Layer2(onAddSpritesCallback);
 				FlxG.state.add(masterLayer);
 			}
 
@@ -41,6 +44,20 @@ package com.ludumlabs.evolution
 			boundsMaxX = 640;
 			boundsMaxY = 480;
 
+		}
+
+		override public function addSpritesForLayerGroup1Layer2(onAddCallback:Function = null):void
+		{
+			addSpriteToLayer(EnemySprite, Group1Layer2Group , 114.000, 112.000, 0.000, false, 1, 1, onAddCallback );//"Zombie"
+			addSpriteToLayer(EnemySprite, Group1Layer2Group , 174.000, 103.000, 0.000, false, 1, 1, onAddCallback );//"Zombie"
+			addSpriteToLayer(EnemySprite, Group1Layer2Group , 237.000, 86.000, 0.000, false, 1, 1, onAddCallback );//"Zombie"
+			addSpriteToLayer(EnemySprite, Group1Layer2Group , 277.000, 93.000, 0.000, false, 1, 1, onAddCallback );//"Zombie"
+			addSpriteToLayer(EnemySprite, Group1Layer2Group , 346.000, 88.000, 0.000, false, 1, 1, onAddCallback );//"Zombie"
+			addSpriteToLayer(EnemySprite, Group1Layer2Group , 364.000, 112.000, 0.000, false, 1, 1, onAddCallback );//"Zombie"
+			addSpriteToLayer(EnemySprite, Group1Layer2Group , 428.000, 98.000, 0.000, false, 1, 1, onAddCallback );//"Zombie"
+			addSpriteToLayer(EnemySprite, Group1Layer2Group , 461.000, 118.000, 0.000, false, 1, 1, onAddCallback );//"Zombie"
+			addSpriteToLayer(EnemySprite, Group1Layer2Group , 522.000, 112.000, 0.000, false, 1, 1, onAddCallback );//"Zombie"
+			addSpriteToLayer(PlayerSprite, Group1Layer2Group , 311.000, 323.000, 0.000, false, 1, 1, onAddCallback );//"Player"
 		}
 
 
