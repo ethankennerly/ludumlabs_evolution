@@ -30,6 +30,7 @@ package com.ludumlabs.evolution
         }
         
         protected function onAddSpriteCallback(newSprite:FlxSprite, layerGroup:FlxGroup):void
+        {
             if(newSprite is EnemySprite) enemies.add(EnemySprite(newSprite));
             if(newSprite is PlayerSprite) player = PlayerSprite(newSprite);
         }
