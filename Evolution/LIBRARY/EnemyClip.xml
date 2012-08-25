@@ -1,4 +1,4 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="EnemyClip" itemID="50392843-00000300" linkageExportForAS="true" linkageClassName="EnemyClip" lastModified="1345927066">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="EnemyClip" itemID="50392843-00000300" linkageExportForAS="true" linkageClassName="EnemyClip" lastModified="1345938909">
   <timeline>
     <DOMTimeline name="EnemyClip">
       <layers>
@@ -17,10 +17,18 @@
                     </StrokeStyle>
                   </strokes>
                   <edges>
-                    <Edge strokeStyle="1" edges="!113 -61S4|169.5 -117.5!169.5 -117.5|113 -174!216 -71|169.5 -117.5!216 -164|169.5 -117.5"/>
-                    <Edge strokeStyle="1" edges="!140 -320|330 -130"/>
-                    <Edge strokeStyle="1" edges="!-87 -164S4|-133 -117!-133 -117|-87 -71!-133 -117|-190 -61!-133 -117|-190 -174"/>
-                    <Edge strokeStyle="1" edges="!-339 200|-190 349!-200 155[0 39.5 200 155"/>
+                    <Edge strokeStyle="1" edges="!44 -29|65 -50!65 -50|44 -72!83 -33|65 -50!83 -67|65 -50!54 -126|126 -55!-31 -67|-49 -50!-49 -50|-31 -33!-49 -50|-70 -29!-49 -50|-70 -72!-126 69|-70 125!-74 53[1 9 76 53"/>
+                    <Edge cubics="!65 -50(;65,-50 44,-72 44,-72q65 -50 44 -72);"/>
+                    <Edge cubics="!83 -33(;83,-33 65,-50 65,-50q83 -33 65 -50);"/>
+                    <Edge cubics="!65 -50(;65,-50 44,-29 44,-29q65 -50 44 -29);"/>
+                    <Edge cubics="!83 -67(;83,-67 65,-50 65,-50q83 -67 65 -50);"/>
+                    <Edge cubics="!54 -126(;54,-126 126,-55 126,-55q54 -126 126 -55);"/>
+                    <Edge cubics="!-31 -67(;-31,-67 -49,-50 -49,-50q-31 -67 -49 -50);"/>
+                    <Edge cubics="!-49 -50(;-49,-50 -31,-33 -31,-33q-49 -50 -31 -33);"/>
+                    <Edge cubics="!-49 -50(;-49,-50 -70,-29 -70,-29q-49 -50 -70 -29);"/>
+                    <Edge cubics="!-49 -50(;-49,-50 -70,-72 -70,-72q-49 -50 -70 -72);"/>
+                    <Edge cubics="!-126 69(;-126,69 -70,125 -70,125q-126 69 -70 125);"/>
+                    <Edge cubics="!-74 53(;-24,23 26,23 76,53q-74 53Q1 9q76 53);"/>
                   </edges>
                 </DOMShape>
               </elements>
@@ -33,7 +41,7 @@
               <elements>
                 <DOMRectangleObject objectWidth="33.45" objectHeight="33.45" x="-16.95" y="-12" lockFlag="true" topLeftRadius="4" topRightRadius="4" bottomLeftRadius="4" bottomRightRadius="4">
                   <matrix>
-                    <Matrix ty="-4"/>
+                    <Matrix a="0.376113891601562" d="0.376113891601562" tx="0.05" ty="-1.8"/>
                   </matrix>
                   <fill>
                     <SolidColor color="#66CCCC"/>

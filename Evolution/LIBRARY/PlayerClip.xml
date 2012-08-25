@@ -1,8 +1,8 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="PlayerClip" itemID="503909af-000002fc" linkageExportForAS="true" linkageClassName="PlayerClip" lastModified="1345929698">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="PlayerClip" itemID="503909af-000002fc" linkageExportForAS="true" linkageClassName="PlayerClip" lastModified="1345938942">
   <timeline>
-    <DOMTimeline name="PlayerClip" currentFrame="1">
+    <DOMTimeline name="PlayerClip">
       <layers>
-        <DOMLayer name="label" color="#FF800A" current="true" isSelected="true" autoNamed="false">
+        <DOMLayer name="label" color="#FF800A" autoNamed="false">
           <frames>
             <DOMFrame index="0" name="idle" labelType="name" keyMode="9728">
               <elements/>
@@ -12,7 +12,7 @@
             </DOMFrame>
           </frames>
         </DOMLayer>
-        <DOMLayer name="Layer 2" color="#9933CC">
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <elements>
@@ -27,7 +27,7 @@
                     </StrokeStyle>
                   </strokes>
                   <edges>
-                    <Edge strokeStyle="1" edges="!140 -320|330 -130!165 -185|165 -40!-170 -195|-170 -50!-339 200|-190 349!-200 155|200 155"/>
+                    <Edge strokeStyle="1" edges="!52 -122|121 -54!61 -73|61 -20!-60 -77|-60 -25!-121 66|-67 120!-71 50|74 50"/>
                   </edges>
                 </DOMShape>
               </elements>
@@ -45,7 +45,7 @@
                     </StrokeStyle>
                   </strokes>
                   <edges>
-                    <Edge strokeStyle="1" edges="!216 -164|169.5 -117.5!169.5 -117.5|216 -71!169.5 -117.5|113 -61!169.5 -117.5|113 -174!140 -320|330 -130!-190 -61|-133 -117!-133 -117|-190 -174!-87 -164|-133 -117!-133 -117|-87 -71!-339 200|-190 349!-200 155|200 155"/>
+                    <Edge strokeStyle="1" edges="!83 -67|65 -50!65 -50|83 -33!65 -50|44 -29!65 -50|44 -72!54 -126|126 -55!-70 -29|-49 -50!-49 -50|-70 -72!-31 -67|-49 -50!-49 -50|-31 -33!-126 69|-70 125!-74 53|76 53"/>
                   </edges>
                 </DOMShape>
               </elements>
@@ -58,7 +58,7 @@
               <elements>
                 <DOMRectangleObject objectWidth="33.45" objectHeight="33.45" x="-16.95" y="-12" lockFlag="true" topLeftRadius="4" topRightRadius="4" bottomLeftRadius="4" bottomRightRadius="4">
                   <matrix>
-                    <Matrix ty="-4"/>
+                    <Matrix a="0.361190795898438" d="0.361190795898438" tx="0.1" ty="-1.75"/>
                   </matrix>
                   <fill>
                     <SolidColor color="#FBCC99"/>
@@ -77,7 +77,7 @@
               <elements>
                 <DOMRectangleObject objectWidth="33.45" objectHeight="33.45" x="-16.95" y="-12" lockFlag="true" topLeftRadius="4" topRightRadius="4" bottomLeftRadius="4" bottomRightRadius="4">
                   <matrix>
-                    <Matrix ty="-4"/>
+                    <Matrix a="0.376113891601562" d="0.376113891601562" tx="0.05" ty="-1.8"/>
                   </matrix>
                   <fill>
                     <SolidColor color="#CCCCCC"/>

@@ -5,7 +5,7 @@ package com.ludumlabs.evolution
     public class PlayerSprite extends FlxSprite
     {
         public static var speed:int = 80;
-        public static var bulletMax:int = 8;
+        public static var bulletMax:int = 64;
         public var bullets:FlxGroup;
 
         /**
