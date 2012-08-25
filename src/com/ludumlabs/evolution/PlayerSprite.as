@@ -31,16 +31,16 @@ package com.ludumlabs.evolution
             if (alive) {
                 velocity.x = 0;
                 velocity.y = 0;
-                if (FlxG.keys.pressed("LEFT")) {
+                if (FlxG.keys.pressed("LEFT") || FlxG.keys.pressed("A")) {
                     velocity.x = -speed;
                 }
-                else if (FlxG.keys.pressed("RIGHT")) {
+                else if (FlxG.keys.pressed("RIGHT") || FlxG.keys.pressed("D")) {
                     velocity.x = speed;
                 }
-                if (FlxG.keys.pressed("UP")) {
+                if (FlxG.keys.pressed("UP") || FlxG.keys.pressed("W")) {
                     velocity.y = -speed;
                 }
-                else if (FlxG.keys.pressed("DOWN")) {
+                else if (FlxG.keys.pressed("DOWN") || FlxG.keys.pressed("S")) {
                     velocity.y = speed;
                 }
             }

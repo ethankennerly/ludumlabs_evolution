@@ -40,10 +40,17 @@ package com.ludumlabs.evolution
             FlxG.collide(level.mainLayer,mobiles);
             
             for each (var enemy:EnemySprite in enemies.members) {
-                enemy.targetX = player.x;
-                enemy.targetY = player.y;
+                enemy.targetX = Math.round(player.x);
+                enemy.targetY = Math.round(player.y);
             }
+            FlxG.overlap(enemies, player, overlapEnemy);			
             super.update();
+        }
+
+        protected function overlapEnemy(enemyObject:FlxObject, playerObject:FlxObject):void
+        {
+            enemyObject.flicker(1);
+            playerObject.kill();
         }
     }
 }
