@@ -1,0 +1,53 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="EnemyClip" itemID="50392843-00000300" linkageExportForAS="true" linkageClassName="EnemyClip" lastModified="1345923357">
+  <timeline>
+    <DOMTimeline name="EnemyClip">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal" weight="2">
+                        <fill>
+                          <SolidColor color="#1D6632"/>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge strokeStyle="1" edges="!113 -61|169.5 -117.5!169.5 -117.5|113 -174!216 -71|169.5 -117.5!216 -164|169.5 -117.5!140 -320|330 -130!-87 -164|-133 -117!-133 -117|-87 -71!-133 -117|-190 -61!-133 -117|-190 -174!-339 200|-190 349!-200 155[0 39.5 200 155"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4FFF4F">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMRectangleObject objectWidth="33.45" objectHeight="33.45" x="-16.95" y="-12" lockFlag="true" topLeftRadius="4" topRightRadius="4" bottomLeftRadius="4" bottomRightRadius="4">
+                  <matrix>
+                    <Matrix ty="-4"/>
+                  </matrix>
+                  <fill>
+                    <SolidColor color="#66CCCC"/>
+                  </fill>
+                  <stroke>
+                    <SolidStroke scaleMode="normal" weight="2">
+                      <fill>
+                        <SolidColor color="#1D6632"/>
+                      </fill>
+                    </SolidStroke>
+                  </stroke>
+                </DOMRectangleObject>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

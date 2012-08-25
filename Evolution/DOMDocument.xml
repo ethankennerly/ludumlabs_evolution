@@ -1,6 +1,7 @@
-<DOMDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" width="640" height="480" frameRate="30" currentTimeline="1" xflVersion="2.2" creatorInfo="Adobe Flash Professional CS6" platform="Macintosh" versionInfo="Saved by Adobe Flash Macintosh 12.0 build 481" majorVersion="12" buildNumber="481" vanishingPoint3DX="320" vanishingPoint3DY="240" previewMode="full" nextSceneIdentifier="2" playOptionsPlayLoop="false" playOptionsPlayPages="false" playOptionsPlayFrameActions="false">
+<DOMDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" backgroundColor="#666666" width="640" height="480" frameRate="30" currentTimeline="1" xflVersion="2.2" creatorInfo="Adobe Flash Professional CS6" platform="Macintosh" versionInfo="Saved by Adobe Flash Macintosh 12.0 build 481" majorVersion="12" buildNumber="481" vanishingPoint3DX="320" vanishingPoint3DY="240" previewMode="full" nextSceneIdentifier="2" playOptionsPlayLoop="false" playOptionsPlayPages="false" playOptionsPlayFrameActions="false">
      <symbols>
-          <Include href="Player.xml" itemID="50390278-000002a4" lastModified="1345914570"/>
+          <Include href="EnemyClip.xml" itemID="50392843-00000300" lastModified="1345923357"/>
+          <Include href="PlayerClip.xml" itemID="503909af-000002fc" lastModified="1345923271"/>
      </symbols>
      <timelines>
           <DOMTimeline name="Scene 1">
@@ -318,13 +319,25 @@
      </extendedSwatchLists>
      <PrinterSettings platform="macintosh"/>
      <publishHistory>
-          <PublishItem publishSize="57291" publishTime="1345913485"/>
-          <PublishItem publishSize="57201" publishTime="1345910804"/>
-          <PublishItem publishSize="57195" publishTime="1345910799"/>
-          <PublishItem publishSize="57199" publishTime="1345910707"/>
-          <PublishItem publishSize="534" publishTime="1345910677"/>
-          <PublishItem publishSize="536" publishTime="1345910608"/>
-          <PublishItem publishSize="536" publishTime="1345910580"/>
-          <PublishItem publishSize="775" publishTime="1345910446"/>
+          <PublishItem publishSize="112218" publishTime="1345924786" publishDebug="true"/>
+          <PublishItem publishSize="112165" publishTime="1345924760" publishDebug="true"/>
+          <PublishItem publishSize="112134" publishTime="1345924659" publishDebug="true"/>
+          <PublishItem publishSize="111867" publishTime="1345924169" publishDebug="true"/>
+          <PublishItem publishSize="111880" publishTime="1345924146" publishDebug="true"/>
+          <PublishItem publishSize="111683" publishTime="1345923770" publishDebug="true"/>
+          <PublishItem publishSize="111645" publishTime="1345923754" publishDebug="true"/>
+          <PublishItem publishSize="111433" publishTime="1345923660" publishDebug="true"/>
+          <PublishItem publishSize="81258" publishTime="1345923365"/>
+          <PublishItem publishSize="81180" publishTime="1345923211"/>
+          <PublishItem publishSize="87773" publishTime="1345921323" publishDebug="true"/>
+          <PublishItem publishSize="87765" publishTime="1345921310" publishDebug="true"/>
+          <PublishItem publishSize="87720" publishTime="1345921288" publishDebug="true"/>
+          <PublishItem publishSize="87759" publishTime="1345921223" publishDebug="true"/>
+          <PublishItem publishSize="59133" publishTime="1345921190"/>
+          <PublishItem publishSize="87749" publishTime="1345921120" publishDebug="true"/>
+          <PublishItem publishSize="87729" publishTime="1345921074" publishDebug="true"/>
+          <PublishItem publishSize="87747" publishTime="1345920933" publishDebug="true"/>
+          <PublishItem publishSize="87766" publishTime="1345920887" publishDebug="true"/>
+          <PublishItem publishSize="87761" publishTime="1345920757" publishDebug="true"/>
      </publishHistory>
 </DOMDocument>

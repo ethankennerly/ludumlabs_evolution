@@ -1,6 +1,6 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Player" itemID="50390278-000002a4" linkageExportForAS="true" linkageClassName="Player" lastModified="1345914570">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="PlayerClip" itemID="503909af-000002fc" linkageExportForAS="true" linkageClassName="PlayerClip" lastModified="1345923271">
   <timeline>
-    <DOMTimeline name="Player">
+    <DOMTimeline name="PlayerClip">
       <layers>
         <DOMLayer name="Layer 2" color="#9933CC">
           <frames>
