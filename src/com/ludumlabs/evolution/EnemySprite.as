@@ -5,9 +5,7 @@ package com.ludumlabs.evolution
     public class EnemySprite extends FlxSprite
     {
         public static var speed:int = 40;
-
-        public var targetX:int;
-        public var targetY:int;
+        public static var target:PlayerSprite;
 
         /**
          * Load sprite sheet and position at center of image.
@@ -32,23 +30,23 @@ package com.ludumlabs.evolution
             acceleration.y = (Math.random() - 0.5) * speed;
         }
 
-        public function follow(targetX:int, targetY:int):void
+        public function follow():void
         {
             velocity.x = 0;
             velocity.y = 0;
-            if (targetX !== undefined) {
-                if (targetX < x - 1) {
+            if (target.x !== undefined) {
+                if (target.x < x - 1) {
                     velocity.x = -speed;
                 }
-                else if (x + 1 < targetX) {
+                else if (x + 1 < target.x) {
                     velocity.x = speed;
                 }
             }
-            if (targetY !== undefined) {
-                if (targetY < y - 1) {
+            if (target.y !== undefined) {
+                if (target.y < y - 1) {
                     velocity.y = -speed;
                 }
-                else if (y + 1 < targetY) {
+                else if (y + 1 < target.y) {
                     velocity.y = speed;
                 }
             }
@@ -56,7 +54,7 @@ package com.ludumlabs.evolution
 
         override public function update():void
         {
-            follow(targetX, targetY);
+            follow();
         }
     }
 }

@@ -21,6 +21,8 @@ package com.ludumlabs.evolution
             
             FlxG.levels = [Level_firstLevel];
             level = new Level_firstLevel(true, onAddSpriteCallback);
+            
+            EnemySprite.target = player;
             add(player.bullets);
             mobiles.add(player.bullets);
             mobiles.add(player);
@@ -41,11 +43,7 @@ package com.ludumlabs.evolution
             player.updateInput();
             
             FlxG.overlap(player.bullets, enemies, BulletSprite.hitEnemy);
-            
-            for each (var enemy:EnemySprite in enemies.members) {
-                enemy.targetX = Math.round(player.x);
-                enemy.targetY = Math.round(player.y);
-            }
+
             FlxG.overlap(enemies, player, overlapEnemy);            
             super.update();
         }
