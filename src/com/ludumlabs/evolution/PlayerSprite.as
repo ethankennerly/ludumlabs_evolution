@@ -24,7 +24,7 @@ package com.ludumlabs.evolution
         }
 
         /**
-         * Move by arrow keys.
+         * Press arrow keys to move.
          */
         public function updateInput():void 
         {
@@ -53,16 +53,10 @@ import org.noorhakim.FlxMovieClip;
 
 /**
  * Pixels of sprite sheet are in this.bitmapData.
+ * "PlayerClip" class is defined in the SWF and the SWC.
  */
 class PlayerSpriteSheet extends FlxMovieClip
 {
-    /**
-     * AS3 embedded gotcha: Need to 2 frames to declare movieclip.
-     * http://www.airtightinteractive.com/2008/05/as3-embedded-movieclip-gotcha/
-     */
-    // [Embed(source="../../../../bin/EvolutionAssets.swf", symbol="Player")]
-    public static var MovieClipClass:Class;
-
     public function PlayerSpriteSheet()
     {
         super(PlayerClip);
