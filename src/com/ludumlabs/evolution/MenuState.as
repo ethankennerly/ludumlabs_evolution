@@ -6,7 +6,6 @@ package com.ludumlabs.evolution
     {
         override public function create():void
         {
-            FlxG.bgColor = 0x666666;
             var t:FlxText;
             t = new FlxText(0,FlxG.height/2-10,FlxG.width,"Evolution");
             t.size = 16;

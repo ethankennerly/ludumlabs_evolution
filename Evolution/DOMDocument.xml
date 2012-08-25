@@ -1,4 +1,7 @@
 <DOMDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" width="640" height="480" frameRate="30" currentTimeline="1" xflVersion="2.2" creatorInfo="Adobe Flash Professional CS6" platform="Macintosh" versionInfo="Saved by Adobe Flash Macintosh 12.0 build 481" majorVersion="12" buildNumber="481" vanishingPoint3DX="320" vanishingPoint3DY="240" previewMode="full" nextSceneIdentifier="2" playOptionsPlayLoop="false" playOptionsPlayPages="false" playOptionsPlayFrameActions="false">
+     <symbols>
+          <Include href="Player.xml" itemID="50390278-000002a4" lastModified="1345914570"/>
+     </symbols>
      <timelines>
           <DOMTimeline name="Scene 1">
                <layers>
@@ -315,6 +318,7 @@
      </extendedSwatchLists>
      <PrinterSettings platform="macintosh"/>
      <publishHistory>
+          <PublishItem publishSize="57291" publishTime="1345913485"/>
           <PublishItem publishSize="57201" publishTime="1345910804"/>
           <PublishItem publishSize="57195" publishTime="1345910799"/>
           <PublishItem publishSize="57199" publishTime="1345910707"/>
