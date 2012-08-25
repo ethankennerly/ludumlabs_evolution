@@ -15,3 +15,6 @@ SymDepend.cache
 *.swp
 *.swo
 *.swn
+
+# Compiled, avoid merge conflict
+bin/*.swf

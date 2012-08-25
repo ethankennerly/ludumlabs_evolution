@@ -1,14 +1,19 @@
 package com.ludumlabs.evolution
 {
-	import org.flixel.*;
-	[SWF(width="640", height="480", backgroundColor="#000000")]
-	[Frame(factoryClass="Preloader")]
+    import flash.display.Sprite;
+    import flash.events.Event;
+    import org.flixel.*;
+    
+    [SWF(width="640", height="480", backgroundColor="#AAAAAA")]
+    [Frame(factoryClass="Preloader")]
 
-	public class EvolutionMain extends FlxGame
-	{
-		public function EvolutionMain()
-		{
-			super(640, 480, MenuState, 1);
-		}
-	}
+    import org.flixel.FlxGame;
+    
+    public class EvolutionMain extends FlxGame
+    {
+        public function EvolutionMain()
+        {
+            super(640, 480, MenuState, 1);
+        }
+    }
 }
