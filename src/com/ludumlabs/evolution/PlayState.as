@@ -21,11 +21,12 @@ package com.ludumlabs.evolution
             
             FlxG.levels = [Level_firstLevel];
             level = new Level_firstLevel(true, onAddSpriteCallback);
-            
+            add(player.bullets);
+            mobiles.add(player.bullets);
             mobiles.add(player);
             mobiles.add(enemies);
             
-            add(new FlxText(0, 0, 200, "Press arrow keys to move"));
+            add(new FlxText(16, 16, 200, "Press arrow keys to move\nClick mouse to shoot"));
         }
         
         protected function onAddSpriteCallback(newSprite:FlxSprite, layerGroup:FlxGroup):void
@@ -38,18 +39,20 @@ package com.ludumlabs.evolution
             FlxG.collide(level.mainLayer,mobiles); //putting this after updateInput makes a weird bobbing behavior while running into the wall
             player.updateInput();
             
+            FlxG.overlap(player.bullets, enemies, BulletSprite.hitEnemy);
+            
             for each (var enemy:EnemySprite in enemies.members) {
                 enemy.targetX = Math.round(player.x);
                 enemy.targetY = Math.round(player.y);
             }
-            FlxG.overlap(enemies, player, overlapEnemy);
+            FlxG.overlap(enemies, player, overlapEnemy);            
             super.update();
         }
 
         protected function overlapEnemy(enemyObject:FlxObject, playerObject:FlxObject):void
         {
             enemyObject.flicker(1);
-            playerObject.kill();
+            playerObject.hurt(1);
         }
     }
 }

@@ -1,7 +1,17 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="PlayerClip" itemID="503909af-000002fc" linkageExportForAS="true" linkageClassName="PlayerClip" lastModified="1345923271">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="PlayerClip" itemID="503909af-000002fc" linkageExportForAS="true" linkageClassName="PlayerClip" lastModified="1345929698">
   <timeline>
-    <DOMTimeline name="PlayerClip">
+    <DOMTimeline name="PlayerClip" currentFrame="1">
       <layers>
+        <DOMLayer name="label" color="#FF800A" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" name="idle" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" name="dead" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
         <DOMLayer name="Layer 2" color="#9933CC">
           <frames>
             <DOMFrame index="0" keyMode="9728">
@@ -22,9 +32,27 @@
                 </DOMShape>
               </elements>
             </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal" weight="2">
+                        <fill>
+                          <SolidColor color="#333333"/>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge strokeStyle="1" edges="!216 -164|169.5 -117.5!169.5 -117.5|216 -71!169.5 -117.5|113 -61!169.5 -117.5|113 -174!140 -320|330 -130!-190 -61|-133 -117!-133 -117|-190 -174!-87 -164|-133 -117!-133 -117|-87 -71!-339 200|-190 349!-200 155|200 155"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
           </frames>
         </DOMLayer>
-        <DOMLayer name="Layer 1" color="#4FFF4F" current="true" isSelected="true">
+        <DOMLayer name="Layer 1" color="#4FFF4F">
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <elements>
@@ -39,6 +67,25 @@
                     <SolidStroke scaleMode="normal" weight="2">
                       <fill>
                         <SolidColor color="#663333"/>
+                      </fill>
+                    </SolidStroke>
+                  </stroke>
+                </DOMRectangleObject>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements>
+                <DOMRectangleObject objectWidth="33.45" objectHeight="33.45" x="-16.95" y="-12" lockFlag="true" topLeftRadius="4" topRightRadius="4" bottomLeftRadius="4" bottomRightRadius="4">
+                  <matrix>
+                    <Matrix ty="-4"/>
+                  </matrix>
+                  <fill>
+                    <SolidColor color="#CCCCCC"/>
+                  </fill>
+                  <stroke>
+                    <SolidStroke scaleMode="normal" weight="2">
+                      <fill>
+                        <SolidColor color="#333333"/>
                       </fill>
                     </SolidStroke>
                   </stroke>

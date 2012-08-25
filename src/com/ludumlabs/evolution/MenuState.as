@@ -16,7 +16,7 @@ package com.ludumlabs.evolution
             add(t);
             
             FlxG.mouse.show();
-            trace("MenuState create");
+            FlxG.log("MenuState");
         }
 
         override public function update():void
@@ -25,7 +25,6 @@ package com.ludumlabs.evolution
 
             if(FlxG.mouse.justPressed())
             {
-                FlxG.mouse.hide();
                 FlxG.switchState(new PlayState());
             }
         }

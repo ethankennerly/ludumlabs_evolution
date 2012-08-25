@@ -5,6 +5,8 @@ package com.ludumlabs.evolution
     public class PlayerSprite extends FlxSprite
     {
         public static var speed:int = 80;
+        public static var bulletMax:int = 8;
+        public var bullets:FlxGroup;
 
         /**
          * Load sprite sheet and position at center of image.
@@ -18,31 +20,49 @@ package com.ludumlabs.evolution
             this.offset.y = this.frameHeight * 0.5;
             this.centerOffsets();
 
-            drag.x = speed * 8;
             maxVelocity.x = speed;
             maxVelocity.y = speed;
+
+            bullets = new FlxGroup();
+            for (var b:int; b < bulletMax; b++) {
+                bullets.add(new BulletSprite());
+            }
         }
 
         /**
          * Press arrow keys to move.
+         * Click mouse to shoot.
          */
         public function updateInput():void 
         {
             if (alive) {
-                velocity.x = 0;
-                velocity.y = 0;
-                if (FlxG.keys.pressed("LEFT") || FlxG.keys.pressed("A")) {
-                    velocity.x = -speed;
-                }
-                else if (FlxG.keys.pressed("RIGHT") || FlxG.keys.pressed("D")) {
-                    velocity.x = speed;
-                }
-                if (FlxG.keys.pressed("UP") || FlxG.keys.pressed("W")) {
-                    velocity.y = -speed;
-                }
-                else if (FlxG.keys.pressed("DOWN") || FlxG.keys.pressed("S")) {
-                    velocity.y = speed;
-                }
+                mayMove();
+                mayShoot();
+            }
+        }
+
+        public function mayMove():void 
+        {
+            velocity.x = 0;
+            velocity.y = 0;
+            if (FlxG.keys.pressed("LEFT") || FlxG.keys.pressed("A")) {
+                velocity.x = -speed;
+            }
+            else if (FlxG.keys.pressed("RIGHT") || FlxG.keys.pressed("D")) {
+                velocity.x = speed;
+            }
+            if (FlxG.keys.pressed("UP") || FlxG.keys.pressed("W")) {
+                velocity.y = -speed;
+            }
+            else if (FlxG.keys.pressed("DOWN") || FlxG.keys.pressed("S")) {
+                velocity.y = speed;
+            }
+        }
+
+        public function mayShoot():void
+        {
+            if (FlxG.mouse.justPressed()) {
+                BulletSprite.shootGroup(this, bullets, FlxG.mouse.screenX, FlxG.mouse.screenY);
             }
         }
     }
