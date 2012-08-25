@@ -1,4 +1,4 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="EnemyClip" itemID="50392843-00000300" linkageExportForAS="true" linkageClassName="EnemyClip" lastModified="1345923357">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="EnemyClip" itemID="50392843-00000300" linkageExportForAS="true" linkageClassName="EnemyClip" lastModified="1345927066">
   <timeline>
     <DOMTimeline name="EnemyClip">
       <layers>
@@ -17,7 +17,10 @@
                     </StrokeStyle>
                   </strokes>
                   <edges>
-                    <Edge strokeStyle="1" edges="!113 -61|169.5 -117.5!169.5 -117.5|113 -174!216 -71|169.5 -117.5!216 -164|169.5 -117.5!140 -320|330 -130!-87 -164|-133 -117!-133 -117|-87 -71!-133 -117|-190 -61!-133 -117|-190 -174!-339 200|-190 349!-200 155[0 39.5 200 155"/>
+                    <Edge strokeStyle="1" edges="!113 -61S4|169.5 -117.5!169.5 -117.5|113 -174!216 -71|169.5 -117.5!216 -164|169.5 -117.5"/>
+                    <Edge strokeStyle="1" edges="!140 -320|330 -130"/>
+                    <Edge strokeStyle="1" edges="!-87 -164S4|-133 -117!-133 -117|-87 -71!-133 -117|-190 -61!-133 -117|-190 -174"/>
+                    <Edge strokeStyle="1" edges="!-339 200|-190 349!-200 155[0 39.5 200 155"/>
                   </edges>
                 </DOMShape>
               </elements>

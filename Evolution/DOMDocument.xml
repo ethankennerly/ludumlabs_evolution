@@ -1,7 +1,8 @@
 <DOMDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" backgroundColor="#666666" width="640" height="480" frameRate="30" currentTimeline="1" xflVersion="2.2" creatorInfo="Adobe Flash Professional CS6" platform="Macintosh" versionInfo="Saved by Adobe Flash Macintosh 12.0 build 481" majorVersion="12" buildNumber="481" vanishingPoint3DX="320" vanishingPoint3DY="240" previewMode="full" nextSceneIdentifier="2" playOptionsPlayLoop="false" playOptionsPlayPages="false" playOptionsPlayFrameActions="false">
      <symbols>
-          <Include href="EnemyClip.xml" itemID="50392843-00000300" lastModified="1345923357"/>
-          <Include href="PlayerClip.xml" itemID="503909af-000002fc" lastModified="1345923271"/>
+          <Include href="BulletClip.xml" itemID="503941e0-0000030a" lastModified="1345929785"/>
+          <Include href="EnemyClip.xml" itemID="50392843-00000300" lastModified="1345927066"/>
+          <Include href="PlayerClip.xml" itemID="503909af-000002fc" lastModified="1345929698"/>
      </symbols>
      <timelines>
           <DOMTimeline name="Scene 1">
@@ -319,6 +320,12 @@
      </extendedSwatchLists>
      <PrinterSettings platform="macintosh"/>
      <publishHistory>
+          <PublishItem publishSize="176863" publishTime="1345932311" publishDebug="true"/>
+          <PublishItem publishSize="176863" publishTime="1345931854" publishDebug="true"/>
+          <PublishItem publishSize="176811" publishTime="1345929411" publishDebug="true"/>
+          <PublishItem publishSize="112500" publishTime="1345929307" publishDebug="true"/>
+          <PublishItem publishSize="112445" publishTime="1345929120" publishDebug="true"/>
+          <PublishItem publishSize="112195" publishTime="1345926952" publishDebug="true"/>
           <PublishItem publishSize="112218" publishTime="1345924786" publishDebug="true"/>
           <PublishItem publishSize="112165" publishTime="1345924760" publishDebug="true"/>
           <PublishItem publishSize="112134" publishTime="1345924659" publishDebug="true"/>
@@ -333,11 +340,5 @@
           <PublishItem publishSize="87765" publishTime="1345921310" publishDebug="true"/>
           <PublishItem publishSize="87720" publishTime="1345921288" publishDebug="true"/>
           <PublishItem publishSize="87759" publishTime="1345921223" publishDebug="true"/>
-          <PublishItem publishSize="59133" publishTime="1345921190"/>
-          <PublishItem publishSize="87749" publishTime="1345921120" publishDebug="true"/>
-          <PublishItem publishSize="87729" publishTime="1345921074" publishDebug="true"/>
-          <PublishItem publishSize="87747" publishTime="1345920933" publishDebug="true"/>
-          <PublishItem publishSize="87766" publishTime="1345920887" publishDebug="true"/>
-          <PublishItem publishSize="87761" publishTime="1345920757" publishDebug="true"/>
      </publishHistory>
 </DOMDocument>
