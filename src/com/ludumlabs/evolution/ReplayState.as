@@ -11,7 +11,10 @@ package com.ludumlabs.evolution
         {
             accumulated = 0;
             var t:FlxText;
-            t = new FlxText(0,FlxG.height/2-10,FlxG.width,"Evolving...");
+            t = new FlxText(0,FlxG.height/2-10,FlxG.width,
+                "Evolving...\n" + FlxG.save 
+                + (1 == FlxG.save ? " life" : " lives")
+                + " left");
             t.size = 16;
             t.alignment = "center";
             add(t);

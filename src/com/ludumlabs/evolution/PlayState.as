@@ -196,11 +196,11 @@ package com.ludumlabs.evolution
         public function maySwitchState():void
         {
             if (0 == enemies.countLiving()) {
+                PlayState.journals = [];
                 if (FlxG.level < FlxG.levels.length - 1) {
                     FlxG.score += 500 * FlxG.save;
                     FlxG.level++;
                     FlxG.save ++;
-                    PlayState.journals = [];
                     FlxG.switchState(new PlayState());
                 }
                 else {
@@ -217,6 +217,7 @@ package com.ludumlabs.evolution
                     FlxG.switchState(new ReplayState());
                 }
                 else {
+                    PlayState.journals = [];
                     FlxG.scores.push(FlxG.score);
                     FlxG.switchState(new GameOverState());
                 }
