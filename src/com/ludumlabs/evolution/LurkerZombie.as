@@ -1,9 +1,5 @@
 package com.ludumlabs.evolution 
 {
-	/**
-     * ...
-     * @author Ethan Kennerly
-     */
     public class LurkerZombie extends EnemySprite 
     {
         
@@ -13,6 +9,7 @@ package com.ludumlabs.evolution
 			speed *= 2;
             tryPathfinding = false;
             health = 3;
+            color = 0x33000000;
         }
         
     }

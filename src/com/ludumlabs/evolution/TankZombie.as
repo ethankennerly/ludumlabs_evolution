@@ -1,9 +1,5 @@
 package com.ludumlabs.evolution 
 {
-	/**
-     * ...
-     * @author Ethan Kennerly
-     */
     public class TankZombie extends EnemySprite 
     {
         
@@ -13,6 +9,7 @@ package com.ludumlabs.evolution
 			speed *= 0.75;
             pathfindingDelay *= 1.5;
             health *= 4;
+            color = 0x330000AA;
         }
         
     }

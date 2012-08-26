@@ -1,9 +1,5 @@
 package com.ludumlabs.evolution 
 {
-	/**
-     * ...
-     * @author Ethan Kennerly
-     */
     public class ZippyZombie extends EnemySprite 
     {
         //public static const speed = 150;
@@ -17,6 +13,7 @@ package com.ludumlabs.evolution
             pathfindingDelay /= 4;
             bodyMass *= 0.7;
             maxImpulse *= 0.7;
+            color = 0x33DDDD33;
         }
     }
 
