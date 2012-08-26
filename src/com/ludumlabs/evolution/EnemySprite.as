@@ -13,7 +13,7 @@ package com.ludumlabs.evolution
         /** 
          * Currently speed 5 to 80 shows no effect on enemy speed. 
          */
-        public static var speed:int = 5;
+        public static var speed:int = 100;
         public static var player:PlayerSprite;
         public static var replayers:FlxGroup;
         public static var tilemap:FlxTilemap;
@@ -136,7 +136,7 @@ package com.ludumlabs.evolution
                 path = tilemap.findPath(new FlxPoint(x + width / 2, y + height / 2), getDestination(target));
                 if(path) {
                     pfState = PF_FOLLOW;
-                    followPath(path);
+                    followPath(path, speed);
                 } else {
                     stopFollowingPath();
                     pfState = PF_GUESS;
