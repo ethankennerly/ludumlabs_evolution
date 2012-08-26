@@ -4,8 +4,11 @@ package com.ludumlabs.evolution
 
     public class MenuState extends FlxState
     {
+        public static var fading:Boolean;
+
         override public function create():void
         {
+            MenuState.fading = false;
             var t:FlxText;
             t = new FlxText(0,FlxG.height/2-10,FlxG.width,"Evolution");
             t.size = 16;
@@ -28,8 +31,9 @@ package com.ludumlabs.evolution
         {
             super.update();
 
-            if(FlxG.mouse.justPressed())
+            if(!MenuState.fading && FlxG.mouse.justPressed())
             {
+                MenuState.fading = true;
                 FlxG.score = 0;
                 FlxG.save = 3;
                 FlxG.level = 0;
@@ -40,12 +44,14 @@ package com.ludumlabs.evolution
 
         public static function switchPlay():void
         {
+            MenuState.fading = false;
             FlxG.switchState(new PlayState());
         }
 
         public static function clickToReturn():void
         {
-            if(FlxG.mouse.justPressed()) {
+            if(!MenuState.fading && FlxG.mouse.justPressed()) {
+                MenuState.fading = true;
                 FlxG.play(Sounds.Pickup);
                 FlxG.fade(0xFF999999, 2, MenuState.goto);
             }
@@ -53,6 +59,7 @@ package com.ludumlabs.evolution
 
         public static function goto():void
         {
+            MenuState.fading = false;
             FlxG.switchState(new MenuState());
         }
     }

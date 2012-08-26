@@ -57,6 +57,7 @@ package com.ludumlabs.evolution
         
         override public function kill():void
         {
+            FlxG.play(Sounds.Kill);
             super.kill();
             
             body.m_world.DestroyBody(body);
@@ -192,6 +193,7 @@ package com.ludumlabs.evolution
             pathTimer--;
             pathfind();
         }
+
     }
 }
 
