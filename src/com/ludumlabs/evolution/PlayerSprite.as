@@ -1,10 +1,5 @@
 package com.ludumlabs.evolution
 {
-    import flash.events.KeyboardEvent;
-    import dja.utils.b2;
-    import Box2D.Dynamics.b2World;
-    import Box2D.Dynamics.b2Body;
-    
     import org.flixel.*;
 
     public class PlayerSprite extends FlxSprite
@@ -16,8 +11,6 @@ package com.ludumlabs.evolution
         public var shoot:Function;
         public var spawn:Function;
         public var journal:Journal;
-        
-        public var body:b2Body;
 
         /**
          * Load sprite sheet and position at center of image.
@@ -44,12 +37,6 @@ package com.ludumlabs.evolution
             shoot = journal.decorate("shoot", this, _shoot);
             spawn = journal.decorate("spawn", this, _spawn);
             spawn(X, Y);
-        }
-        
-        public function initPhysics(world:b2World):void
-        {
-            body = b2.body(world, { x:x + 0.5*width, y:y + 0.5*height });
-            b2.circle(body, { radius:0.5*width });
         }
 
         public function _spawn(spawnX:int, spawnY:int):void

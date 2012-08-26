@@ -75,10 +75,24 @@ package com.ludumlabs.evolution
                     }
                 }
             }
-            if (player != null) {
+            if (enemies != null) {
                 
-                player.initPhysics(world);
+                var enemyArr:Array = enemies.members, enemyCount:int = enemyArr.length;
+                
+                for (var k:int = 0; k < enemyCount; k++) {
+                    
+                    var enemy:EnemySprite = enemyArr[k] as EnemySprite;
+                    
+                    if (enemy != null) {
+                        
+                        enemy.initPhysics(world);
+                    }
+                }
             }
+            //if (player != null) {
+                
+            //    player.initPhysics(world);
+            //}
         }
         
         protected function onAddSpriteCallback(newSprite:FlxSprite, layerGroup:FlxGroup):void

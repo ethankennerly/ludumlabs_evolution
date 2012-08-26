@@ -1,5 +1,9 @@
 package com.ludumlabs.evolution
 {
+    import dja.utils.b2;
+    import Box2D.Dynamics.b2World;
+    import Box2D.Dynamics.b2Body;
+    
     import org.flixel.*;
 
     public class EnemySprite extends FlxSprite
@@ -15,6 +19,8 @@ package com.ludumlabs.evolution
         
         public var pfState:Number;
         public var pathTimer:Number;
+        
+        public var body:b2Body;
 
         /**
          * Load sprite sheet and position at center of image.
@@ -34,6 +40,12 @@ package com.ludumlabs.evolution
             
             pathTimer = 0;
             pfState = PF_GUESS;
+        }
+        
+        public function initPhysics(world:b2World):void
+        {
+            body = b2.body(world, { x:x + 0.5*width, y:y + 0.5*height });
+            b2.circle(body, { radius:0.5*width });
         }
         
         public function resetTimer():void
