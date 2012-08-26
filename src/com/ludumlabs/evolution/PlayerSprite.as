@@ -32,15 +32,22 @@ package com.ludumlabs.evolution
             maxVelocity.x = speed;
             maxVelocity.y = speed;
 
-            bullets = new FlxGroup();
-            for (var b:int; b < bulletMax; b++) {
-                bullets.add(new BulletSprite());
-            }
+            bullets = createBullets();
+
             journal = new Journal();
             move = journal.decorate("move", this, _move);
             shoot = journal.decorate("shoot", this, _shoot);
             spawn = journal.decorate("spawn", this, _spawn);
             spawn(X, Y);
+        }
+
+        public function createBullets():FlxGroup
+        {
+            var bullets:FlxGroup = new FlxGroup();
+            for (var b:int = bullets.length; b < bulletMax; b++) {
+                bullets.add(new BulletSprite());
+            }
+            return bullets;
         }
 
         public function _spawn(spawnX:int, spawnY:int):void
@@ -125,10 +132,6 @@ package com.ludumlabs.evolution
         override public function kill():void
         {
             super.kill();
-            if (!journal.replaying) {
-                journal.replay(true);
-                alive = true;
-            }
         }
     }
 }

@@ -8,6 +8,8 @@ package com.ludumlabs.evolution
     
     public class PlayState extends FlxState
     {
+        public static var replayers:Array;
+
         public var player:PlayerSprite;
         public var enemies:FlxGroup;
         public var mobiles:FlxGroup;
@@ -20,26 +22,49 @@ package com.ludumlabs.evolution
 
         override public function create():void
         {
-            
+            super.create();
+            FlxG.levels = [Level_firstLevel];
+            if (null == PlayState.replayers) {
+                PlayState.replayers = [];
+            }
+            restart();
+            add(new FlxText(16, 16, 200, "Press arrow keys to move\nClick mouse to shoot"));
+        }
+       
+        public function restart():void
+        {
             enemies = new FlxGroup();
             mobiles = new FlxGroup();
             
-            FlxG.levels = [Level_firstLevel];
             setLevel(1);
             
-            world.DrawDebugData();
+            // world.DrawDebugData();
             
             EnemySprite.target = player;
             EnemySprite.tilemap = level.mainLayer;
-            
             add(player.bullets);
             mobiles.add(player.bullets);
             mobiles.add(player);
             mobiles.add(enemies);
-            
-            add(new FlxText(16, 16, 200, "Press arrow keys to move\nClick mouse to shoot"));
+            replay(replayers, mobiles);
         }
-        
+
+        /** 
+         * Recreate bullets that were destroyed.
+         */
+        public function replay(replayers:Array, mobiles:FlxGroup):void
+        {
+            for each(var replayer:PlayerSprite in replayers) {
+                replayer.alive = true;
+                replayer.bullets = replayer.createBullets();
+                replayer.journal.replay(true);
+                add(replayer);
+                add(replayer.bullets);
+                mobiles.add(replayer.bullets);
+                mobiles.add(replayer);
+            }
+        }
+
         protected function setLevel(levelNum:int):void
         {
             if (levelNum < 1 ||
@@ -109,6 +134,11 @@ package com.ludumlabs.evolution
 
         override public function update():void
         {
+            if (!player.alive) {
+                // replay(player, replayers, mobiles);
+                PlayState.replayers.push(player);
+                FlxG.switchState(new PlayState());
+            }
             FlxG.collide(level.mainLayer,mobiles); //putting this after updateInput makes a weird bobbing behavior while running into the wall
             player.updateInput();
             
