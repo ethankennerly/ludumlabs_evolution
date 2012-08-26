@@ -83,11 +83,11 @@ package org.flixel
 		/**
 		 * Internal, the width of a single tile.
 		 */
-		protected var _tileWidth:uint;
+		public var _tileWidth:uint;
 		/**
 		 * Internal, the height of a single tile.
 		 */
-		protected var _tileHeight:uint;
+		public var _tileHeight:uint;
 		/**
 		 * Internal collection of tile objects, one for each type of tile in the map (NOTE one for every single tile in the whole map).
 		 */
