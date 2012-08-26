@@ -3,6 +3,8 @@ package com.ludumlabs.evolution
     import dja.utils.b2;
     import Box2D.Dynamics.b2World;
     import Box2D.Dynamics.b2Body;
+    import Box2D.Collision.Shapes.b2MassData;
+    import Box2D.Common.Math.b2Vec2;
     
     import org.flixel.*;
 
@@ -21,6 +23,10 @@ package com.ludumlabs.evolution
         public var pathTimer:Number;
         
         public var body:b2Body;
+        public var bodyMass:Number;
+        public var maxImpulse:Number;
+        
+        public var tempVec:b2Vec2;
 
         /**
          * Load sprite sheet and position at center of image.
@@ -40,24 +46,53 @@ package com.ludumlabs.evolution
             
             pathTimer = 0;
             pfState = PF_GUESS;
+            
+            bodyMass = 1;
+            maxImpulse = 1;
+            
+            tempVec = new b2Vec2();
         }
         
         public function initPhysics(world:b2World):void
         {
             body = b2.body(world, { x:x + 0.5*width, y:y + 0.5*height });
-            b2.circle(body, { radius:0.5*width });
+            
+            b2.box(body, { width:0.85*width, height:0.85*height, rotation:FlxG.random()*360, friction:0, computeBodyMass:false });
+            b2.circle(body, { radius:0.5*width, friction:0, computeBodyMass:false });
+            
+            var massData:b2MassData = new b2MassData();
+            massData.mass = bodyMass;
+            
+            body.SetMass(massData);
         }
         
         public function resetTimer():void
         {
             pathTimer = Math.floor( Math.random()*(PATHFINDING_DELAY*PATHFINDING_VARIANCE) + (PATHFINDING_DELAY*(1-PATHFINDING_VARIANCE)) );
         }
-
-        public function wander():void
-        {
-            acceleration.x = (Math.random() - 0.5) * speed;
-            acceleration.y = (Math.random() - 0.5) * speed;
-        }
+        
+		override protected function updateMotion():void
+		{
+			tempVec.x = velocity.x/b2.drawScale;    // target world velocity
+			tempVec.y = velocity.y/b2.drawScale;    //
+            
+            tempVec.x = mass*(tempVec.x - body.m_linearVelocity.x);    // target impulse
+            tempVec.y = mass*(tempVec.y - body.m_linearVelocity.y);    //
+            
+            var length:Number = tempVec.Length();
+            
+            if (length > maxImpulse) {
+                
+                tempVec.x = maxImpulse*tempVec.x/length;    // clamp impulse to maxImpulse
+                tempVec.y = maxImpulse*tempVec.y/length;    //
+            }
+            body.ApplyImpulse(tempVec, body.m_xf.position);
+            
+            ///
+            
+			x = b2.x(body) - 0.5*width;
+			y = b2.y(body) - 0.5*height;
+		}
 
         public function follow():void
         {

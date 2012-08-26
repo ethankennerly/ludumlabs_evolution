@@ -11,6 +11,7 @@ package com.ludumlabs.evolution
         public var player:PlayerSprite;
         public var enemies:FlxGroup;
         public var mobiles:FlxGroup;
+        public var nonEnemyMobiles:FlxGroup;
         
         public var level:Level_firstLevel;
         
@@ -23,18 +24,22 @@ package com.ludumlabs.evolution
             
             enemies = new FlxGroup();
             mobiles = new FlxGroup();
+            nonEnemyMobiles = new FlxGroup();
             
             FlxG.levels = [Level_firstLevel];
             setLevel(1);
             
-            world.DrawDebugData();
+            //world.DrawDebugData();
             
             EnemySprite.target = player;
             EnemySprite.tilemap = level.mainLayer;
             
             add(player.bullets);
-            mobiles.add(player.bullets);
-            mobiles.add(player);
+            
+            nonEnemyMobiles.add(player.bullets);
+            nonEnemyMobiles.add(player);
+            
+            mobiles.add(nonEnemyMobiles);
             mobiles.add(enemies);
             
             add(new FlxText(16, 16, 200, "Press arrow keys to move\nClick mouse to shoot"));
@@ -59,8 +64,8 @@ package com.ludumlabs.evolution
             var tilemap:FlxTilemap = level.layerGroup1Map1;
             
             var debugDrawSprite:Sprite = new Sprite(), container:Sprite = FlxG.camera.getContainerSprite();
-            debugDrawSprite.x =  -0.5*tilemap.width;
-            debugDrawSprite.y =  -0.5*tilemap.height;
+            debugDrawSprite.x = -0.5*tilemap.width;
+            debugDrawSprite.y = -0.5*tilemap.height;
             container.addChild(debugDrawSprite);
             
             world = b2.world({ gravityY:0, doSleep:false, debugDrawSprite:debugDrawSprite });
@@ -71,7 +76,7 @@ package com.ludumlabs.evolution
                     
                     if (tilemap.getTile(i, j) > 0) {
                         
-                        b2.box(world.m_groundBody, { x:(i + 0.5)*tilemap._tileWidth, y:(j + 0.5)*tilemap._tileHeight, width:tilemap._tileWidth, height:tilemap._tileHeight, computeBodyMass:false });
+                        b2.box(world.m_groundBody, { x:(i + 0.5)*tilemap._tileWidth, y:(j + 0.5)*tilemap._tileHeight, width:tilemap._tileWidth, height:tilemap._tileHeight, friction:0, computeBodyMass:false });
                     }
                 }
             }
@@ -109,15 +114,17 @@ package com.ludumlabs.evolution
 
         override public function update():void
         {
-            FlxG.collide(level.mainLayer,mobiles); //putting this after updateInput makes a weird bobbing behavior while running into the wall
+            FlxG.collide(level.mainLayer, nonEnemyMobiles); //putting this after updateInput makes a weird bobbing behavior while running into the wall
             player.updateInput();
             
             FlxG.overlap(player.bullets, enemies, BulletSprite.hitEnemy);
-
-            FlxG.overlap(enemies, player, overlapEnemy);            
+            FlxG.overlap(enemies, player, overlapEnemy);
+            
             super.update();
+            
+            world.Step(FlxG.elapsed, 5);
         }
-
+        
         protected function overlapEnemy(enemyObject:FlxObject, playerObject:FlxObject):void
         {
             enemyObject.flicker(1);
