@@ -11,6 +11,8 @@ package com.ludumlabs.evolution
         public var shoot:Function;
         public var spawn:Function;
         public var journal:Journal;
+        public var lastXVelocity:Number;
+        public var lastYVelocity:Number;
 
         /**
          * Load sprite sheet and position at center of image.
@@ -24,6 +26,8 @@ package com.ludumlabs.evolution
             this.offset.x = this.frameWidth * 0.5;
             this.offset.y = this.frameHeight * 0.5;
             this.centerOffsets();
+            
+            this.lastXVelocity = this.lastYVelocity = 0;
 
             maxVelocity.x = speed;
             maxVelocity.y = speed;
@@ -58,6 +62,7 @@ package com.ludumlabs.evolution
                     mayMove();
                     mayShoot();
                 }
+                redoMove();
             }
         }
 
@@ -89,9 +94,20 @@ package com.ludumlabs.evolution
             }
         }
 
-        public function _move(axis:String, velocity:Number):void
+        public function _move(axis:String, vel:Number):void
         {
-            this.velocity[axis] = velocity;
+            this.velocity[axis] = vel;
+            
+            if (axis == "x") lastXVelocity = vel;
+            if (axis == "y") lastYVelocity = vel;
+        }
+        
+        // This is to address the bug of a directional key being ignored if you're running into/along a wall
+        // and eventually get past the wall but keep going parallel to the wall rather than past it diagonally (ask John)
+        public function redoMove():void
+        {
+            if(lastXVelocity != 0) this.velocity["x"] = lastXVelocity;
+            if(lastYVelocity != 0) this.velocity["y"] = lastYVelocity;
         }
 
         public function mayShoot():void
