@@ -4,7 +4,7 @@ package com.ludumlabs.evolution
     import flash.events.Event;
     import org.flixel.*;
     
-    [SWF(width="640", height="480", backgroundColor="#AAAAAA")]
+    [SWF(width="800", height="600", backgroundColor="#AAAAAA")]
     [Frame(factoryClass="Preloader")]
 
     import org.flixel.FlxGame;
@@ -13,7 +13,7 @@ package com.ludumlabs.evolution
     {
         public function EvolutionMain()
         {
-            super(640, 480, MenuState, 1);
+            super(800, 600, MenuState, 1);
         }
     }
 }

@@ -27,7 +27,7 @@
                     </StrokeStyle>
                   </strokes>
                   <edges>
-                    <Edge strokeStyle="1" edges="!52 -122|121 -54!61 -73|61 -20!-60 -77|-60 -25!-121 66|-67 120!-71 50|74 50"/>
+                    <Edge strokeStyle="1" edges="!61 -73|61 -20!52 -122|121 -54!-60 -77|-60 -25!-121 66|-67 120!-71 50|74 50"/>
                   </edges>
                 </DOMShape>
               </elements>
@@ -45,7 +45,7 @@
                     </StrokeStyle>
                   </strokes>
                   <edges>
-                    <Edge strokeStyle="1" edges="!83 -67|65 -50!65 -50|83 -33!65 -50|44 -29!65 -50|44 -72!54 -126|126 -55!-70 -29|-49 -50!-49 -50|-70 -72!-31 -67|-49 -50!-49 -50|-31 -33!-126 69|-70 125!-74 53|76 53"/>
+                    <Edge strokeStyle="1" edges="!54 -126|126 -55!44 -29|65 -50!65 -50|44 -72!83 -67|65 -50!65 -50|83 -33!-31 -67|-49 -50!-49 -50|-31 -33!-70 -29|-49 -50!-49 -50|-70 -72!-126 69|-70 125!-74 53|76 53"/>
                   </edges>
                 </DOMShape>
               </elements>
@@ -77,7 +77,7 @@
               <elements>
                 <DOMRectangleObject objectWidth="33.45" objectHeight="33.45" x="-16.95" y="-12" lockFlag="true" topLeftRadius="4" topRightRadius="4" bottomLeftRadius="4" bottomRightRadius="4">
                   <matrix>
-                    <Matrix a="0.376113891601562" d="0.376113891601562" tx="0.05" ty="-1.8"/>
+                    <Matrix a="0.3760986328125" d="0.3760986328125" tx="0.05" ty="-1.8"/>
                   </matrix>
                   <fill>
                     <SolidColor color="#CCCCCC"/>
