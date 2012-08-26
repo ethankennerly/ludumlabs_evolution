@@ -6,6 +6,8 @@ package com.ludumlabs.evolution
     {
         public static var speed:int = 80;
         public static var bulletMax:int = 64;
+        public var shootInterval:Number = 0.25;
+        public var mouseAccumulated:Number = 0.125;
         public var bullets:FlxGroup;
         public var move:Function;
         public var shoot:Function;
@@ -26,6 +28,9 @@ package com.ludumlabs.evolution
             this.loadGraphic(PlayerSpriteSheet, true, true, sheet.frameWidth, sheet.frameHeight);
             maxVelocity.x = speed;
             maxVelocity.y = speed;
+            addAnimation("idle", [0], 4);
+            addAnimation("dead", [1], 4);
+            play("dead");
         }
 
         public function createJournal(X:int, Y:int):Journal
@@ -34,6 +39,7 @@ package com.ludumlabs.evolution
             move = journal.decorate("move", this, "_move");
             shoot = journal.decorate("shoot", this, "_shoot");
             spawn = journal.decorate("spawn", this, "_spawn");
+            play("idle");
             spawn(X, Y);
             return journal;
         }
@@ -51,6 +57,7 @@ package com.ludumlabs.evolution
             for (var b:int = 0; b < bulletMax; b++) {
                 bullets.add(new BulletSprite());
             }
+            mouseAccumulated = 0;
             state.nonEnemyMobiles.add(this);
             state.nonEnemyMobiles.add(bullets);
             state.add(this);
@@ -121,7 +128,8 @@ package com.ludumlabs.evolution
 
         public function mayShoot():void
         {
-            if (FlxG.mouse.justPressed()) {
+            var repeatShoot:Boolean = updateRepeat();
+            if (FlxG.mouse.justPressed() || repeatShoot) {
                 shoot(FlxG.mouse.screenX, FlxG.mouse.screenY);
             }
         }
@@ -131,9 +139,20 @@ package com.ludumlabs.evolution
             BulletSprite.shootGroup(this, bullets, targetX, targetY);
         }
 
-        override public function kill():void
+        public function updateRepeat():Boolean
         {
-            super.kill();
+            var repeatNow:Boolean = false;
+            if (FlxG.mouse.pressed()) {
+                mouseAccumulated += FlxG.elapsed;
+            }
+            else {
+                mouseAccumulated = 0;
+            }
+            if (shootInterval < mouseAccumulated) {
+                mouseAccumulated -= shootInterval;
+                repeatNow = true;
+            }
+            return repeatNow;
         }
     }
 }
