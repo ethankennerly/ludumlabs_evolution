@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project>
   <version>3.0.4</version>
-  <bgColor>0x0066cc</bgColor>
+  <bgColor>0x999999</bgColor>
   <viewPos x="NaN" y="NaN"/>
   <firstLayersTop>false</firstLayersTop>
-  <spriteEntries currentId="3">
+  <spriteEntries currentId="4">
     <tileEntry name="Player" idx="1" className="PlayerSprite" image="nethack-3.4.3-16x16.png" offsetX="64" offsetY="16" width="16" height="16" anchorX="0" anchorY="0" centerAnchor="false" boundsX="0" boundsY="0" boundsWidth="16" boundsHeight="16" constructor="" creation="" exports="true" canScale="false" canRotate="false" surfaceObject="false"/>
-    <tileEntry name="Zombie" idx="2" className="EnemySprite" image="nethack-3.4.3-16x16.png" offsetX="96" offsetY="96" width="16" height="16" anchorX="0" anchorY="0" centerAnchor="false" boundsX="0" boundsY="0" boundsWidth="16" boundsHeight="16" constructor="" creation="" exports="true" canScale="true" canRotate="true" surfaceObject="false" selected="true"/>
+    <tileEntry name="Zombie" idx="2" className="EnemySprite" image="nethack-3.4.3-16x16.png" offsetX="96" offsetY="96" width="16" height="16" anchorX="0" anchorY="0" centerAnchor="false" boundsX="0" boundsY="0" boundsWidth="16" boundsHeight="16" constructor="" creation="" exports="true" canScale="true" canRotate="true" surfaceObject="false"/>
+    <tileEntry name="LurkerZombie" idx="3" className="EnemySprite" image="nethack-3.4.3-16x16.png" offsetX="96" offsetY="96" width="16" height="16" anchorX="0" anchorY="0" centerAnchor="false" boundsX="0" boundsY="0" boundsWidth="16" boundsHeight="16" constructor="" creation="" exports="true" canScale="true" canRotate="true" surfaceObject="false" selected="true"/>
   </spriteEntries>
   <layers>
     <group name="Group1" id="0" xScroll="1" yScroll="1" visible="true" open="true" locked="false" exports="true">

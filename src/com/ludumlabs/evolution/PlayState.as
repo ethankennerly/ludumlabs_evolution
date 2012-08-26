@@ -29,13 +29,13 @@ package com.ludumlabs.evolution
 
         public static function addHud(state:FlxState):void
         {
-            PlayState.lives = new FlxText(FlxG.width-216,16,200, "");
+            PlayState.lives = new FlxText(FlxG.width-220,20,200, "");
             PlayState.lives.alignment = "right";
-            PlayState.score = new FlxText(FlxG.width-216,32,200, "");
+            PlayState.score = new FlxText(FlxG.width-220,36,200, "");
             PlayState.score.alignment = "right";
-            PlayState.highScore = new FlxText(FlxG.width-216,48,200, "");
+            PlayState.highScore = new FlxText(FlxG.width-220,48,200, "");
             PlayState.highScore.alignment = "right";
-            PlayState.level = new FlxText(FlxG.width-216,64,200, "");
+            PlayState.level = new FlxText(FlxG.width-220,64,200, "");
             PlayState.level.alignment = "right";
             PlayState.updateHud();
             state.add(PlayState.lives);
@@ -70,7 +70,7 @@ package com.ludumlabs.evolution
                 PlayState.journals = [];
             }
             restart();
-            add(new FlxText(16, 16, 200, "Press arrow keys to move\nClick mouse to shoot"));
+            add(new FlxText(20, 20, 200, "Press arrow keys to move\nClick mouse to shoot"));
             PlayState.addHud(this);
         }
        
@@ -116,6 +116,7 @@ package com.ludumlabs.evolution
                 trace("PlayState, setLevel, no such level: " + levelNum);
                 return;
             }
+            FlxG.bgColor = 0xFFAAAAAA;
             var levelClass:Class = FlxG.levels[levelNum];
             level = new levelClass(true, onAddSpriteCallback);
             
