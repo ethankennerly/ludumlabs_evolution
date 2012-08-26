@@ -8,7 +8,8 @@ package com.ludumlabs.evolution
     
     public class PlayState extends FlxState
     {
-        public static var replayers:Array;
+        public static var journals:Array;
+        public var replayers:FlxGroup;
 
         public var player:PlayerSprite;
         public var enemies:FlxGroup;
@@ -24,9 +25,10 @@ package com.ludumlabs.evolution
         override public function create():void
         {
             super.create();
+            PlayerSprite.state = this;
             FlxG.levels = [Level_firstLevel];
-            if (null == PlayState.replayers) {
-                PlayState.replayers = [];
+            if (null == PlayState.journals) {
+                PlayState.journals = [];
             }
             restart();
             add(new FlxText(16, 16, 200, "Press arrow keys to move\nClick mouse to shoot"));
@@ -44,30 +46,24 @@ package com.ludumlabs.evolution
             
             EnemySprite.target = player;
             EnemySprite.tilemap = level.mainLayer;
-            add(player.bullets);
-            
-            nonEnemyMobiles.add(player.bullets);
-            nonEnemyMobiles.add(player);
-            
-            mobiles.add(nonEnemyMobiles);
             mobiles.add(enemies);
-            replay(replayers, mobiles);
+            replayers = replay(player);
         }
 
         /** 
-         * Recreate bullets that were destroyed.
+         * Recreate players that were destroyed and assign them journals.
          */
-        public function replay(replayers:Array, mobiles:FlxGroup):void
+        public function replay(player:PlayerSprite):FlxGroup
         {
-            for each(var replayer:PlayerSprite in replayers) {
-                replayer.alive = true;
-                replayer.bullets = replayer.createBullets();
-                replayer.journal.replay(true);
-                add(replayer);
-                add(replayer.bullets);
-                mobiles.add(replayer.bullets);
-                mobiles.add(replayer);
+            player.journal = player.createJournal(player.x, player.y);
+            var replayers:FlxGroup = new FlxGroup();
+            for each(var journal:Journal in journals) {
+                var replayer:PlayerSprite = new PlayerSprite();
+                replayer.journal = journal;
+                replayer.journal.replay(true, replayer);
+                replayers.add(replayer);
             }
+            return replayers;
         }
 
         protected function setLevel(levelNum:int):void
@@ -139,20 +135,24 @@ package com.ludumlabs.evolution
 
         override public function update():void
         {
-            if (!player.alive) {
-                // replay(player, replayers, mobiles);
-                PlayState.replayers.push(player);
-                FlxG.switchState(new PlayState());
-            }
             FlxG.collide(level.mainLayer,nonEnemyMobiles); //putting this after updateInput makes a weird bobbing behavior while running into the wall
             player.updateInput();
-            
             FlxG.overlap(player.bullets, enemies, BulletSprite.hitEnemy);
-            FlxG.overlap(enemies, player, overlapEnemy);
-            
+            for each(var replayer:PlayerSprite in replayers.members) {
+                replayer.updateInput();
+                FlxG.overlap(replayer.bullets, enemies, BulletSprite.hitEnemy);
+            }
+            FlxG.overlap(enemies, player, overlapEnemy);            
+            FlxG.overlap(enemies, replayers, overlapEnemy);            
             super.update();
-            
             world.Step(FlxG.elapsed, 5);
+            
+            if (!player.alive) {
+                PlayState.journals.push(player.journal);
+                player = null;
+                FlxG.switchState(new ReplayState());
+                return;
+            }
         }
         
         protected function overlapEnemy(enemyObject:FlxObject, playerObject:FlxObject):void

@@ -13,6 +13,7 @@ package com.ludumlabs.evolution
         public var journal:Journal;
         public var lastXVelocity:Number;
         public var lastYVelocity:Number;
+        public static var state:PlayState;
 
         /**
          * Load sprite sheet and position at center of image.
@@ -23,36 +24,37 @@ package com.ludumlabs.evolution
             super(X, Y);
             var sheet:PlayerSpriteSheet = new PlayerSpriteSheet();
             this.loadGraphic(PlayerSpriteSheet, true, true, sheet.frameWidth, sheet.frameHeight);
+            maxVelocity.x = speed;
+            maxVelocity.y = speed;
+        }
+
+        public function createJournal(X:int, Y:int):Journal
+        {
+            var journal:Journal = new Journal();
+            move = journal.decorate("move", this, "_move");
+            shoot = journal.decorate("shoot", this, "_shoot");
+            spawn = journal.decorate("spawn", this, "_spawn");
+            spawn(X, Y);
+            return journal;
+        }
+
+        public function _spawn(spawnX:int, spawnY:int):void
+        {
+            reset(spawnX, spawnY);
             this.offset.x = this.frameWidth * 0.5;
             this.offset.y = this.frameHeight * 0.5;
             this.centerOffsets();
             
             this.lastXVelocity = this.lastYVelocity = 0;
 
-            maxVelocity.x = speed;
-            maxVelocity.y = speed;
-
-            bullets = createBullets();
-
-            journal = new Journal();
-            move = journal.decorate("move", this, _move);
-            shoot = journal.decorate("shoot", this, _shoot);
-            spawn = journal.decorate("spawn", this, _spawn);
-            spawn(X, Y);
-        }
-
-        public function createBullets():FlxGroup
-        {
-            var bullets:FlxGroup = new FlxGroup();
-            for (var b:int = bullets.length; b < bulletMax; b++) {
+            bullets = new FlxGroup();
+            for (var b:int = 0; b < bulletMax; b++) {
                 bullets.add(new BulletSprite());
             }
-            return bullets;
-        }
-
-        public function _spawn(spawnX:int, spawnY:int):void
-        {
-            reset(spawnX, spawnY);
+            state.nonEnemyMobiles.add(this);
+            state.nonEnemyMobiles.add(bullets);
+            state.add(this);
+            state.add(bullets);
         }
 
         /**
@@ -68,8 +70,8 @@ package com.ludumlabs.evolution
                 else {
                     mayMove();
                     mayShoot();
+                    // redoMove();
                 }
-                redoMove();
             }
         }
 
