@@ -84,29 +84,25 @@ package com.ludumlabs.evolution
 
         public function mayMove():void 
         {
-            if (FlxG.keys.justPressed("LEFT") || FlxG.keys.justPressed("A")) {
-                move("x", -speed);
+            var tempVelocityX:int = 0;
+            var tempVelocityY:int = 0;
+            if (FlxG.keys.pressed("LEFT") || FlxG.keys.pressed("A")) {
+                tempVelocityX -= speed;
             }
-            else if (FlxG.keys.justReleased("LEFT") || FlxG.keys.justReleased("A")) {
-                move("x", 0);
+            if (FlxG.keys.pressed("RIGHT") || FlxG.keys.pressed("D")) {
+                tempVelocityX += speed;
             }
-            if (FlxG.keys.justPressed("RIGHT") || FlxG.keys.justPressed("D")) {
-                move("x", speed);
+            if (FlxG.keys.pressed("UP") || FlxG.keys.pressed("W")) {
+                tempVelocityY -= speed;
             }
-            else if (FlxG.keys.justReleased("RIGHT") || FlxG.keys.justReleased("D")) {
-                move("x", 0);
+            if (FlxG.keys.pressed("DOWN") || FlxG.keys.pressed("S")) {
+                tempVelocityY += speed;
             }
-            if (FlxG.keys.justPressed("UP") || FlxG.keys.justPressed("W")) {
-                move("y", -speed);
+            if (tempVelocityX != lastXVelocity) {
+                move("x", tempVelocityX);
             }
-            else if (FlxG.keys.justReleased("UP") || FlxG.keys.justReleased("W")) {
-                move("y", 0);
-            }
-            if (FlxG.keys.justPressed("DOWN") || FlxG.keys.justPressed("S")) {
-                move("y", speed);
-            }
-            else if (FlxG.keys.justReleased("DOWN") || FlxG.keys.justReleased("S")) {
-                move("y", 0);
+            if (tempVelocityY != lastYVelocity) {
+                move("y", tempVelocityY);
             }
         }
 

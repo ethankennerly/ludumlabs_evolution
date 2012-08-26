@@ -1,8 +1,9 @@
-<DOMDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" backgroundColor="#666666" width="800" height="600" frameRate="30" currentTimeline="1" xflVersion="2.2" creatorInfo="Adobe Flash Professional CS6" platform="Macintosh" versionInfo="Saved by Adobe Flash Macintosh 12.0 build 481" majorVersion="12" buildNumber="481" gridSpacingX="8" gridSpacingY="8" gridSnapTo="true" gridVisible="true" viewAngle3D="66.1048159665517" vanishingPoint3DX="320" vanishingPoint3DY="240" previewMode="full" nextSceneIdentifier="2" playOptionsPlayLoop="false" playOptionsPlayPages="false" playOptionsPlayFrameActions="false">
+<DOMDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" backgroundColor="#666666" width="800" height="600" frameRate="30" currentTimeline="1" xflVersion="2.2" creatorInfo="Adobe Flash Professional CS6" platform="Macintosh" versionInfo="Saved by Adobe Flash Macintosh 12.0 build 481" majorVersion="12" buildNumber="481" gridSnapTo="true" gridVisible="true" viewAngle3D="66.1048159665517" vanishingPoint3DX="320" vanishingPoint3DY="240" previewMode="full" nextSceneIdentifier="2" playOptionsPlayLoop="false" playOptionsPlayPages="false" playOptionsPlayFrameActions="false">
      <symbols>
-          <Include href="BulletClip.xml" itemID="503941e0-0000030a" lastModified="1346005352"/>
+          <Include href="BulletClip.xml" itemID="503941e0-0000030a" lastModified="1346009993"/>
           <Include href="EnemyClip.xml" itemID="50392843-00000300" lastModified="1345938909"/>
           <Include href="PlayerClip.xml" itemID="503909af-000002fc" lastModified="1345946689"/>
+          <Include href="Tilemap.xml" itemIcon="1" loadImmediate="false" itemID="503a7bda-00000643" lastModified="1346010851"/>
      </symbols>
      <timelines>
           <DOMTimeline name="Scene 1">
@@ -320,6 +321,18 @@
      </extendedSwatchLists>
      <PrinterSettings platform="macintosh"/>
      <publishHistory>
+          <PublishItem publishSize="245544" publishTime="1346008991" publishDebug="true"/>
+          <PublishItem publishSize="245586" publishTime="1346008542" publishDebug="true"/>
+          <PublishItem publishSize="245676" publishTime="1346008519" publishDebug="true"/>
+          <PublishItem publishSize="245684" publishTime="1346007620" publishDebug="true"/>
+          <PublishItem publishSize="245772" publishTime="1346007545" publishDebug="true"/>
+          <PublishItem publishSize="178494" publishTime="1346007014"/>
+          <PublishItem publishSize="245761" publishTime="1346006561" publishDebug="true"/>
+          <PublishItem publishSize="245658" publishTime="1346006349" publishDebug="true"/>
+          <PublishItem publishSize="245643" publishTime="1346005946" publishDebug="true"/>
+          <PublishItem publishSize="245645" publishTime="1346005687" publishDebug="true"/>
+          <PublishItem publishSize="245624" publishTime="1346005584" publishDebug="true"/>
+          <PublishItem publishSize="245643" publishTime="1346005513" publishDebug="true"/>
           <PublishItem publishSize="245324" publishTime="1346005387" publishDebug="true"/>
           <PublishItem publishSize="223092" publishTime="1346005375"/>
           <PublishItem publishSize="245437" publishTime="1346005297" publishDebug="true"/>
@@ -328,17 +341,5 @@
           <PublishItem publishSize="245441" publishTime="1346004864" publishDebug="true"/>
           <PublishItem publishSize="245359" publishTime="1346004781" publishDebug="true"/>
           <PublishItem publishSize="245354" publishTime="1346004718" publishDebug="true"/>
-          <PublishItem publishSize="245360" publishTime="1346004692" publishDebug="true"/>
-          <PublishItem publishSize="245480" publishTime="1346004175" publishDebug="true"/>
-          <PublishItem publishSize="245351" publishTime="1346004153" publishDebug="true"/>
-          <PublishItem publishSize="245342" publishTime="1346004122" publishDebug="true"/>
-          <PublishItem publishSize="245307" publishTime="1346004072" publishDebug="true"/>
-          <PublishItem publishSize="245377" publishTime="1346004052" publishDebug="true"/>
-          <PublishItem publishSize="245405" publishTime="1346004029" publishDebug="true"/>
-          <PublishItem publishSize="245152" publishTime="1346003321" publishDebug="true"/>
-          <PublishItem publishSize="245087" publishTime="1346001744" publishDebug="true"/>
-          <PublishItem publishSize="245114" publishTime="1346001594" publishDebug="true"/>
-          <PublishItem publishSize="245072" publishTime="1346001301" publishDebug="true"/>
-          <PublishItem publishSize="245068" publishTime="1346001178" publishDebug="true"/>
      </publishHistory>
 </DOMDocument>
