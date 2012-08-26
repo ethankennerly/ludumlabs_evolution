@@ -36,9 +36,9 @@ package com.ludumlabs.evolution
         /**
          * Wrap a function to record and apply the arguments in the same scope.
          */
-        public function decorate(uniqueName:String, scope:*, func:Function):Function
+        public function decorate(uniqueName:String, scope:*, funcName:String):Function
         {
-            nameMethods[uniqueName] = func;
+            nameMethods[uniqueName] = funcName;
             nameScopes[uniqueName] = scope;
             var record:Function = function(... args:*):* {
                 if (recording) {
@@ -52,21 +52,38 @@ package com.ludumlabs.evolution
                     }
                     previousRecord = now;
                 }
-                return func.apply(scope, args);
+                return apply(scope, funcName, args);
             }
             return record;
         }
 
-        public function replay(immediately:Boolean = false):void
+        public function apply(scope:*, methodName:String, arg:Array):* {
+            var result:*;
+            if (0 == arg.length) {
+                result = scope[methodName]();
+            }
+            else {
+                result = scope[methodName].apply(scope, arg);
+            }
+            return result;
+        }
+
+        public function replay(immediately:Boolean = false, overrideScope:* = undefined):void
         {
             if (verbose) {
                 trace("Journal.replay");
+            }
+            if (undefined !== overrideScope) {
+                for (var s:String in nameScopes) {
+                    nameScopes[s] = overrideScope;
+                }
             }
             previousUpdate = getTimer();
             if (immediately && 1 <= delays.length) {
                 previousUpdate -= delays[0];
             }
             accumulated = 0;
+            replayIndex = 0;
             replaying = true;
         }
 
@@ -77,27 +94,25 @@ package com.ludumlabs.evolution
             }
             accumulated += now - previousUpdate;
             if (replaying) {
-                if (1 <= delays.length) {
+                if (1 <= delays.length && replayIndex <= delays.length - 1) {
                     var delay:int = delays[replayIndex];
                     if (delay <= accumulated) {
                         var method:String = methods[replayIndex];
-                        if (undefined == nameMethods[method]) {
+                        var undecorated:String = nameMethods[method];
+                        if (undefined == undecorated) {
                             throw new ReferenceError("Expected method " + method + " in name methods.");
                         }
                         var arg:Array = methodArgs[replayIndex];
                         var scope:* = nameScopes[method];
                         if (verbose) {
-                            trace("Journal.update: " + delay.toString() + " method " + method);
+                            trace("Journal.update: " + delay.toString() + " method " + undecorated 
+                                + " replays " + replayIndex + " of " + delays.length 
+                                + " accumulated " + accumulated);
                         }
-                        if (0 == arg.length) {
-                            nameMethods[method]();
-                        }
-                        else {
-                            nameMethods[method].apply(scope, arg);
-                        }
+                        apply(scope, undecorated, arg);
                         accumulated -= delay;
+                        replayIndex = replayIndex + 1;
                     }
-                    replayIndex = (replayIndex++) % delays.length;
                 }
             }
             previousUpdate = now;
