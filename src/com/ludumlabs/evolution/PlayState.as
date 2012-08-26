@@ -40,7 +40,7 @@ package com.ludumlabs.evolution
             
             setLevel(1);
             
-            world.DrawDebugData();
+            //world.DrawDebugData();
             
             EnemySprite.target = player;
             EnemySprite.tilemap = level.mainLayer;
@@ -93,7 +93,7 @@ package com.ludumlabs.evolution
             debugDrawSprite.y = -0.5*tilemap.height;
             container.addChild(debugDrawSprite);
             
-            world = b2.world({ gravityY:0, doSleep:false, debugDrawSprite:debugDrawSprite });
+            world = b2.world( { gravityY:0, doSleep:false } ); //, debugDrawSprite:debugDrawSprite });
             
             for (var i:int = 0; i < tilemap.widthInTiles; i++) {
                 

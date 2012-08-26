@@ -96,19 +96,9 @@ package com.ludumlabs.evolution
             }
             body.ApplyImpulse(tempVec, body.m_xf.position);
             
-            ///
-            
 			x = b2.x(body) - 0.5*width;
 			y = b2.y(body) - 0.5*height;
 		}
-
-        public function follow():void
-        {
-            
-            
-            //TODO: this still doesn't work
-            pathfind();
-        }
         
         public function pathfind():void
         {
@@ -175,7 +165,7 @@ package com.ludumlabs.evolution
         override public function update():void
         {
             pathTimer--;
-            follow();
+            pathfind();
         }
     }
 }
