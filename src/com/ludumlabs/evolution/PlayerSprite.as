@@ -70,7 +70,7 @@ package com.ludumlabs.evolution
                 else {
                     mayMove();
                     mayShoot();
-                    // redoMove();
+                    redoMove();
                 }
             }
         }

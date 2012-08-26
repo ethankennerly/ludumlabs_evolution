@@ -14,9 +14,12 @@ package com.ludumlabs.evolution
             t = new FlxText(FlxG.width/2-50,FlxG.height-20,100,"Click to play");
             t.alignment = "center";
             add(t);
-            
+           
+            FlxG.levels = [Level_firstLevel];
+            PlayState.addHud(this);
+
             FlxG.mouse.show();
-            FlxG.log("MenuState");
+            trace("MenuState");
         }
 
         override public function update():void
@@ -25,6 +28,9 @@ package com.ludumlabs.evolution
 
             if(FlxG.mouse.justPressed())
             {
+                FlxG.score = 0;
+                FlxG.save = 3;
+                FlxG.level = 0;
                 FlxG.switchState(new PlayState());
             }
         }

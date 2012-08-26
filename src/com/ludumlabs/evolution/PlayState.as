@@ -8,7 +8,12 @@ package com.ludumlabs.evolution
     
     public class PlayState extends FlxState
     {
+        public static var lives:FlxText;
+        public static var level:FlxText;
+        public static var score:FlxText;
+        public static var highScore:FlxText;
         public static var journals:Array;
+
         public var replayers:FlxGroup;
 
         public var player:PlayerSprite;
@@ -22,16 +27,51 @@ package com.ludumlabs.evolution
         
         //public static function onLoadObject(obj:Object, layer:FlxGroup, level:BaseLevel, properties:Array):void {}
 
+        public static function addHud(state:FlxState):void
+        {
+            PlayState.lives = new FlxText(FlxG.width-216,16,200, "");
+            PlayState.lives.alignment = "right";
+            PlayState.score = new FlxText(FlxG.width-216,32,200, "");
+            PlayState.score.alignment = "right";
+            PlayState.highScore = new FlxText(FlxG.width-216,48,200, "");
+            PlayState.highScore.alignment = "right";
+            PlayState.level = new FlxText(FlxG.width-216,64,200, "");
+            PlayState.level.alignment = "right";
+            PlayState.updateHud();
+            state.add(PlayState.lives);
+            state.add(PlayState.score);
+            state.add(PlayState.highScore);
+            state.add(PlayState.level);
+        }
+
+        public static function updateHud():void
+        {
+            if (undefined === FlxG.save) {
+                FlxG.save = 3;
+            }
+            PlayState.lives.text = "Lives " + FlxG.save.toString();
+            if (undefined === FlxG.score) {
+                FlxG.score = 0;
+            }
+            PlayState.score.text = "Score " + FlxG.score.toString();
+            if (undefined === FlxG.scores || 0 == FlxG.scores.length) {
+                FlxG.scores = [0];
+            }
+            PlayState.highScore.text = "High score " + Math.max.apply(null, FlxG.scores).toString();
+            PlayState.level.text = "Level " + (FlxG.level + 1).toString() 
+                + " of " + FlxG.levels.length.toString();
+        }
+
         override public function create():void
         {
             super.create();
             PlayerSprite.state = this;
-            FlxG.levels = [Level_firstLevel];
             if (null == PlayState.journals) {
                 PlayState.journals = [];
             }
             restart();
             add(new FlxText(16, 16, 200, "Press arrow keys to move\nClick mouse to shoot"));
+            PlayState.addHud(this);
         }
        
         public function restart():void
@@ -40,7 +80,7 @@ package com.ludumlabs.evolution
             mobiles = new FlxGroup();
             nonEnemyMobiles = new FlxGroup();
             
-            setLevel(1);
+            setLevel(FlxG.level);
             
             //world.DrawDebugData();
             
@@ -68,13 +108,13 @@ package com.ludumlabs.evolution
 
         protected function setLevel(levelNum:int):void
         {
-            if (levelNum < 1 ||
-                levelNum > FlxG.levels.length) {
+            if (levelNum < 0 ||
+                levelNum >= FlxG.levels.length) {
                 
                 trace("PlayState, setLevel, no such level: " + levelNum);
                 return;
             }
-            var levelClass:Class = FlxG.levels[levelNum - 1];
+            var levelClass:Class = FlxG.levels[levelNum];
             level = new levelClass(true, onAddSpriteCallback);
             
             createWorld();
@@ -144,14 +184,40 @@ package com.ludumlabs.evolution
             }
             FlxG.overlap(enemies, player, overlapEnemy);            
             FlxG.overlap(enemies, replayers, overlapEnemy);            
+            PlayState.updateHud();
             super.update();
             world.Step(FlxG.elapsed, 5);
-            
-            if (!player.alive) {
-                PlayState.journals.push(player.journal);
-                player = null;
-                FlxG.switchState(new ReplayState());
-                return;
+           
+            maySwitchState();
+        }
+
+        public function maySwitchState():void
+        {
+            if (0 == enemies.countLiving()) {
+                if (FlxG.level < FlxG.levels.length - 1) {
+                    FlxG.score += 500 * FlxG.save;
+                    FlxG.level++;
+                    FlxG.save ++;
+                    PlayState.journals = [];
+                    FlxG.switchState(new PlayState());
+                }
+                else {
+                    FlxG.score += 1000 * FlxG.save;
+                    FlxG.scores.push(FlxG.score);
+                    FlxG.switchState(new WinState());
+                }
+            }
+            else if (!player.alive) {
+                FlxG.save--;
+                if (0 < FlxG.save) {
+                    PlayState.journals.push(player.journal);
+                    player = null;
+                    FlxG.switchState(new ReplayState());
+                }
+                else {
+                    FlxG.scores.push(FlxG.score);
+                    FlxG.switchState(new GameOverState());
+                }
             }
         }
         
