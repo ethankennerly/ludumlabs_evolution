@@ -8,6 +8,7 @@ package com.ludumlabs.evolution
 
         /**
          * Load sprite sheet and position at center of image.
+         * Small hitbox.
          */
         public function BulletSprite(X:int = 0, Y:int = 0, SimpleGraphic:Class = null)
         {
@@ -16,6 +17,8 @@ package com.ludumlabs.evolution
             this.loadGraphic(BulletSpriteSheet, true, true, sheet.frameWidth, sheet.frameHeight);
             this.offset.x = this.frameWidth * 0.5;
             this.offset.y = this.frameHeight * 0.5;
+            this.width = this.frameWidth * 0.5;
+            this.height = this.frameHeight * 0.5;
             this.centerOffsets();
 
             maxVelocity.x = speed;

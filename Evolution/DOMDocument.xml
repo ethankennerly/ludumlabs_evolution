@@ -2,7 +2,7 @@
      <symbols>
           <Include href="BulletClip.xml" itemID="503941e0-0000030a" lastModified="1345937476"/>
           <Include href="EnemyClip.xml" itemID="50392843-00000300" lastModified="1345938909"/>
-          <Include href="PlayerClip.xml" itemID="503909af-000002fc" lastModified="1345938942"/>
+          <Include href="PlayerClip.xml" itemID="503909af-000002fc" lastModified="1345946689"/>
      </symbols>
      <timelines>
           <DOMTimeline name="Scene 1">
@@ -320,25 +320,25 @@
      </extendedSwatchLists>
      <PrinterSettings platform="macintosh"/>
      <publishHistory>
-          <PublishItem publishSize="176630" publishTime="1345944247"/>
-          <PublishItem publishSize="220380" publishTime="1345944200"/>
-          <PublishItem publishSize="180224" publishTime="1345944131" publishDebug="true"/>
-          <PublishItem publishSize="180220" publishTime="1345944072" publishDebug="true"/>
-          <PublishItem publishSize="180229" publishTime="1345944032" publishDebug="true"/>
-          <PublishItem publishSize="180169" publishTime="1345943999" publishDebug="true"/>
-          <PublishItem publishSize="180034" publishTime="1345943868" publishDebug="true"/>
-          <PublishItem publishSize="180079" publishTime="1345943771" publishDebug="true"/>
-          <PublishItem publishSize="180003" publishTime="1345943215" publishDebug="true"/>
-          <PublishItem publishSize="179973" publishTime="1345943188" publishDebug="true"/>
-          <PublishItem publishSize="179970" publishTime="1345943043" publishDebug="true"/>
-          <PublishItem publishSize="180015" publishTime="1345942979" publishDebug="true"/>
-          <PublishItem publishSize="178447" publishTime="1345938955" publishDebug="true"/>
-          <PublishItem publishSize="178409" publishTime="1345938178" publishDebug="true"/>
-          <PublishItem publishSize="178579" publishTime="1345937908" publishDebug="true"/>
-          <PublishItem publishSize="178229" publishTime="1345937520" publishDebug="true"/>
-          <PublishItem publishSize="178202" publishTime="1345936093" publishDebug="true"/>
-          <PublishItem publishSize="178186" publishTime="1345935992" publishDebug="true"/>
-          <PublishItem publishSize="178128" publishTime="1345935808" publishDebug="true"/>
-          <PublishItem publishSize="178196" publishTime="1345935725" publishDebug="true"/>
+          <PublishItem publishSize="243086" publishTime="1345947498" publishDebug="true"/>
+          <PublishItem publishSize="243061" publishTime="1345947484" publishDebug="true"/>
+          <PublishItem publishSize="243060" publishTime="1345947449" publishDebug="true"/>
+          <PublishItem publishSize="243036" publishTime="1345946611" publishDebug="true"/>
+          <PublishItem publishSize="243022" publishTime="1345946597" publishDebug="true"/>
+          <PublishItem publishSize="242994" publishTime="1345946577" publishDebug="true"/>
+          <PublishItem publishSize="243014" publishTime="1345946527" publishDebug="true"/>
+          <PublishItem publishSize="243084" publishTime="1345945865" publishDebug="true"/>
+          <PublishItem publishSize="243039" publishTime="1345945562" publishDebug="true"/>
+          <PublishItem publishSize="243036" publishTime="1345945548" publishDebug="true"/>
+          <PublishItem publishSize="243007" publishTime="1345945535" publishDebug="true"/>
+          <PublishItem publishSize="243010" publishTime="1345945495" publishDebug="true"/>
+          <PublishItem publishSize="243037" publishTime="1345945437" publishDebug="true"/>
+          <PublishItem publishSize="242768" publishTime="1345944613" publishDebug="true"/>
+          <PublishItem publishSize="242724" publishTime="1345944542" publishDebug="true"/>
+          <PublishItem publishSize="242756" publishTime="1345944518" publishDebug="true"/>
+          <PublishItem publishSize="242692" publishTime="1345944492" publishDebug="true"/>
+          <PublishItem publishSize="242705" publishTime="1345944391" publishDebug="true"/>
+          <PublishItem publishSize="242634" publishTime="1345944372" publishDebug="true"/>
+          <PublishItem publishSize="242616" publishTime="1345944360" publishDebug="true"/>
      </publishHistory>
 </DOMDocument>

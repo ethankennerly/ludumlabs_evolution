@@ -12,6 +12,7 @@ package com.ludumlabs.evolution
         public var delays:Array;
         public var methods:Array;
         public var methodArgs:Array;
+        public var replayIndex:int;
         public var replaying:Boolean;
         public var recording:Boolean;
         public var verbose:Boolean = true;
@@ -27,6 +28,7 @@ package com.ludumlabs.evolution
             delays = [];
             methodArgs = [];
             methods = [];
+            replayIndex = 0;
             recording = true;
             replaying = false;
         }
@@ -76,14 +78,13 @@ package com.ludumlabs.evolution
             accumulated += now - previousUpdate;
             if (replaying) {
                 if (1 <= delays.length) {
-                    var delay:int = delays[0];
+                    var delay:int = delays[replayIndex];
                     if (delay <= accumulated) {
-                        delays.shift();
-                        var method:String = methods.shift();
+                        var method:String = methods[replayIndex];
                         if (undefined == nameMethods[method]) {
                             throw new ReferenceError("Expected method " + method + " in name methods.");
                         }
-                        var arg:Array = methodArgs.shift();
+                        var arg:Array = methodArgs[replayIndex];
                         var scope:* = nameScopes[method];
                         if (verbose) {
                             trace("Journal.update: " + delay.toString() + " method " + method);
@@ -96,6 +97,7 @@ package com.ludumlabs.evolution
                         }
                         accumulated -= delay;
                     }
+                    replayIndex = (replayIndex++) % delays.length;
                 }
             }
             previousUpdate = now;
