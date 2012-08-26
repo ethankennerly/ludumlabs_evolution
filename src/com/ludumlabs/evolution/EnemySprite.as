@@ -12,7 +12,7 @@ package com.ludumlabs.evolution
         public static var target:PlayerSprite;
         public static var tilemap:FlxTilemap;
         
-        private const PATHFINDING_DELAY:Number = 200;
+        private const PATHFINDING_DELAY:Number = 100;
         private const PATHFINDING_VARIANCE:Number = 0.9;
         private const PF_FOLLOW = 0;
         private const PF_GUESS = 1;
