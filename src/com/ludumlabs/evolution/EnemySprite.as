@@ -53,6 +53,14 @@ package com.ludumlabs.evolution
             tempVec = new b2Vec2();
         }
         
+        override public function kill():void
+        {
+            super.kill();
+            
+            body.m_world.DestroyBody(body);
+            body = null;
+        }
+        
         public function initPhysics(world:b2World):void
         {
             body = b2.body(world, { x:x + 0.5*width, y:y + 0.5*height });
@@ -76,8 +84,8 @@ package com.ludumlabs.evolution
 			tempVec.x = velocity.x/b2.drawScale;    // target world velocity
 			tempVec.y = velocity.y/b2.drawScale;    //
             
-            tempVec.x = mass*(tempVec.x - body.m_linearVelocity.x);    // target impulse
-            tempVec.y = mass*(tempVec.y - body.m_linearVelocity.y);    //
+            tempVec.x = bodyMass*(tempVec.x - body.m_linearVelocity.x);    // target impulse
+            tempVec.y = bodyMass*(tempVec.y - body.m_linearVelocity.y);    //
             
             var length:Number = tempVec.Length();
             
