@@ -1,5 +1,9 @@
 package com.ludumlabs.evolution
 {
+    import dja.utils.b2;
+    import Box2D.Dynamics.b2World;
+    import Box2D.Dynamics.b2Body;
+    
     import org.flixel.*;
 
     public class PlayerSprite extends FlxSprite
@@ -7,6 +11,8 @@ package com.ludumlabs.evolution
         public static var speed:int = 80;
         public static var bulletMax:int = 64;
         public var bullets:FlxGroup;
+        
+        public var body:b2Body;
 
         /**
          * Load sprite sheet and position at center of image.
@@ -27,6 +33,12 @@ package com.ludumlabs.evolution
             for (var b:int; b < bulletMax; b++) {
                 bullets.add(new BulletSprite());
             }
+        }
+        
+        public function initPhysics(world:b2World):void
+        {
+            body = b2.body(world, { x:x + 0.5*width, y:y + 0.5*height });
+            b2.circle(body, { radius:0.5*width });
         }
 
         /**

@@ -48,7 +48,9 @@ package com.ludumlabs.evolution
 
 		override public function addSpritesForLayerGroup1Layer2(onAddCallback:Function = null):void
 		{
-			addSpriteToLayer(EnemySprite, Group1Layer2Group , 88.000, 115.000, 0.000, false, 1, 1, onAddCallback );//"Zombie"
+            addSpriteToLayer(PlayerSprite, Group1Layer2Group , 311.000, 323.000, 0.000, false, 1, 1, onAddCallback );//"Player"
+            
+			/*addSpriteToLayer(EnemySprite, Group1Layer2Group , 88.000, 115.000, 0.000, false, 1, 1, onAddCallback );//"Zombie"
 			addSpriteToLayer(EnemySprite, Group1Layer2Group , 174.000, 103.000, 0.000, false, 1, 1, onAddCallback );//"Zombie"
 			addSpriteToLayer(EnemySprite, Group1Layer2Group , 237.000, 86.000, 0.000, false, 1, 1, onAddCallback );//"Zombie"
 			addSpriteToLayer(EnemySprite, Group1Layer2Group , 277.000, 93.000, 0.000, false, 1, 1, onAddCallback );//"Zombie"
@@ -57,7 +59,6 @@ package com.ludumlabs.evolution
 			addSpriteToLayer(EnemySprite, Group1Layer2Group , 428.000, 98.000, 0.000, false, 1, 1, onAddCallback );//"Zombie"
 			addSpriteToLayer(EnemySprite, Group1Layer2Group , 461.000, 118.000, 0.000, false, 1, 1, onAddCallback );//"Zombie"
 			addSpriteToLayer(EnemySprite, Group1Layer2Group , 522.000, 112.000, 0.000, false, 1, 1, onAddCallback );//"Zombie"
-			addSpriteToLayer(PlayerSprite, Group1Layer2Group , 311.000, 323.000, 0.000, false, 1, 1, onAddCallback );//"Player"
 			addSpriteToLayer(EnemySprite, Group1Layer2Group , 94.000, 159.000, 0.000, false, 1, 1, onAddCallback );//"Zombie"
 			addSpriteToLayer(EnemySprite, Group1Layer2Group , 163.000, 164.000, 0.000, false, 1, 1, onAddCallback );//"Zombie"
 			addSpriteToLayer(EnemySprite, Group1Layer2Group , 233.000, 154.000, 0.000, false, 1, 1, onAddCallback );//"Zombie"
@@ -129,7 +130,7 @@ package com.ludumlabs.evolution
 			addSpriteToLayer(EnemySprite, Group1Layer2Group , 45.000, 370.000, 0.000, false, 1, 1, onAddCallback );//"Zombie"
 			addSpriteToLayer(EnemySprite, Group1Layer2Group , 62.000, 426.000, 0.000, false, 1, 1, onAddCallback );//"Zombie"
 			addSpriteToLayer(EnemySprite, Group1Layer2Group , 32.000, 303.000, 0.000, false, 1, 1, onAddCallback );//"Zombie"
-			addSpriteToLayer(EnemySprite, Group1Layer2Group , 32.000, 342.000, 0.000, false, 1, 1, onAddCallback );//"Zombie"
+			addSpriteToLayer(EnemySprite, Group1Layer2Group , 32.000, 342.000, 0.000, false, 1, 1, onAddCallback );//"Zombie"*/
 		}
 
 

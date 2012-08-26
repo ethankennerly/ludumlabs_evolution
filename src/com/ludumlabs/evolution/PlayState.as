@@ -2,9 +2,9 @@ package com.ludumlabs.evolution
 {
     import dja.utils.b2;
     import Box2D.Dynamics.b2World;
+    import flash.display.Sprite;
     
     import org.flixel.*;
-    import flash.display.Sprite;
     
     public class PlayState extends FlxState
     {
@@ -51,16 +51,19 @@ package com.ludumlabs.evolution
             var levelClass:Class = FlxG.levels[levelNum - 1];
             level = new levelClass(true, onAddSpriteCallback);
             
-            initPhysics();
+            createWorld();
         }
         
-        protected function initPhysics():void
+        protected function createWorld():void
         {
+            var tilemap:FlxTilemap = level.layerGroup1Map1;
+            
             var debugDrawSprite:Sprite = new Sprite(), container:Sprite = FlxG.camera.getContainerSprite();
+            debugDrawSprite.x =  -0.5*tilemap.width;
+            debugDrawSprite.y =  -0.5*tilemap.height;
             container.addChild(debugDrawSprite);
             
             world = b2.world({ gravityY:0, doSleep:false, debugDrawSprite:debugDrawSprite });
-            var tilemap:FlxTilemap = level.layerGroup1Map1;
             
             for (var i:int = 0; i < tilemap.widthInTiles; i++) {
                 
@@ -68,16 +71,26 @@ package com.ludumlabs.evolution
                     
                     if (tilemap.getTile(i, j) > 0) {
                         
-                        b2.box(world.m_groundBody, { x:(i + 0.5)*tilemap._tileWidth - 0.5*tilemap.width, y:(j + 0.5)*tilemap._tileHeight - 0.5*tilemap.height, width:tilemap._tileWidth, height:tilemap._tileHeight, computeBodyMass:false });
+                        b2.box(world.m_groundBody, { x:(i + 0.5)*tilemap._tileWidth, y:(j + 0.5)*tilemap._tileHeight, width:tilemap._tileWidth, height:tilemap._tileHeight, computeBodyMass:false });
                     }
                 }
+            }
+            if (player != null) {
+                
+                player.initPhysics(world);
             }
         }
         
         protected function onAddSpriteCallback(newSprite:FlxSprite, layerGroup:FlxGroup):void
         {
-            if(newSprite is EnemySprite) enemies.add(EnemySprite(newSprite));
-            if(newSprite is PlayerSprite) player = PlayerSprite(newSprite);
+            if (newSprite is EnemySprite) {
+                
+                enemies.add(newSprite);
+            }
+            if (newSprite is PlayerSprite) {
+                
+                player = newSprite as PlayerSprite;
+            }
         }
 
         override public function update():void
