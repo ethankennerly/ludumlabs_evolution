@@ -13,24 +13,26 @@ package com.ludumlabs.evolution
         /** 
          * Currently speed 5 to 80 shows no effect on enemy speed. 
          */
-        public static var speed:int = 100;
         public static var player:PlayerSprite;
         public static var replayers:FlxGroup;
         public static var tilemap:FlxTilemap;
         
-        private const PATHFINDING_DELAY:Number = 100;
-        private const PATHFINDING_VARIANCE:Number = 0.9;
-        private const PF_FOLLOW = 0;
-        private const PF_GUESS = 1;
+        protected static const PATHFINDING_VARIANCE = 0.4;
+        protected static const PF_FOLLOW = 0;
+        protected static const PF_GUESS = 1;
+        protected static const BLIND_FOLLOW_WIGGLE_ROOM = 4;
         
-        public var pfState:Number;
-        public var pathTimer:Number;
+        public var pfState:Number = PF_GUESS;
+        public var pathTimer:Number = 0;
         
         public var body:b2Body;
-        public var bodyMass:Number;
-        public var maxImpulse:Number;
-        
         public var tempVec:b2Vec2;
+        public var speed:Number = 60;
+        public var bodyMass:Number = 1;
+        public var maxImpulse:Number = 1;
+        
+        protected var pathfindingDelay:Number = 150;
+        protected var tryPathfinding:Boolean = true;
 
         /**
          * Load sprite sheet and position at center of image.
@@ -48,11 +50,6 @@ package com.ludumlabs.evolution
             maxVelocity.x = speed;
             maxVelocity.y = speed;
             
-            pathTimer = 0;
-            pfState = PF_GUESS;
-            
-            bodyMass = 1;
-            maxImpulse = 1;
             health = 3;
             
             tempVec = new b2Vec2();
@@ -81,7 +78,7 @@ package com.ludumlabs.evolution
         
         public function resetTimer():void
         {
-            pathTimer = Math.floor( Math.random()*(PATHFINDING_DELAY*PATHFINDING_VARIANCE) + (PATHFINDING_DELAY*(1-PATHFINDING_VARIANCE)) );
+            pathTimer = Math.floor( Math.random()*(pathfindingDelay*PATHFINDING_VARIANCE) + (pathfindingDelay*(1-PATHFINDING_VARIANCE)) );
         }
         
 		override protected function updateMotion():void
@@ -131,7 +128,7 @@ package com.ludumlabs.evolution
             var dest:FlxPoint;
             var target:PlayerSprite = getTarget();
             
-            if (pathTimer <= 0) {
+            if (tryPathfinding && pathTimer <= 0) {
                 resetTimer();
                 path = tilemap.findPath(new FlxPoint(x + width / 2, y + height / 2), getDestination(target));
                 if(path) {
@@ -173,18 +170,18 @@ package com.ludumlabs.evolution
             velocity.x = 0;
             velocity.y = 0;
             if (target.x !== undefined) {
-                if (target.x < x - 1) {
+                if (target.x < x - BLIND_FOLLOW_WIGGLE_ROOM) {
                     velocity.x = -speed;
                 }
-                else if (x + 1 < target.x) {
+                else if (x + BLIND_FOLLOW_WIGGLE_ROOM < target.x) {
                     velocity.x = speed;
                 }
             }
             if (target.y !== undefined) {
-                if (target.y < y - 1) {
+                if (target.y < y - BLIND_FOLLOW_WIGGLE_ROOM) {
                     velocity.y = -speed;
                 }
-                else if (y + 1 < target.y) {
+                else if (y + BLIND_FOLLOW_WIGGLE_ROOM < target.y) {
                     velocity.y = speed;
                 }
             }
