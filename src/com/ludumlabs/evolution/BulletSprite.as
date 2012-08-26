@@ -34,18 +34,27 @@ package com.ludumlabs.evolution
             super.update();
         }
 
-        public static function shootGroup(shooter:FlxSprite, bullets:FlxGroup, targetX:int, targetY:int):void
+        /**
+         * Return true if did shoot.
+         */
+        public static function shootGroup(shooter:FlxSprite, bullets:FlxGroup, targetX:int, targetY:int):Boolean
         {
+            var didShoot:Boolean = false;
             for each(var bullet:BulletSprite in bullets.members){
                 if (! bullet.exists) {
-                    bullet.shoot(shooter, targetX, targetY);
+                    didShoot = bullet.shoot(shooter, targetX, targetY);
                     break;
                 }
             }
+            return didShoot;
         }
 
-        public function shoot(shooter:FlxSprite, targetX:int, targetY:int):void 
+        /**
+         * Return true if did shoot.
+         */
+        public function shoot(shooter:FlxSprite, targetX:int, targetY:int):Boolean
         {
+            var didShoot:Boolean = false;
             var dx:Number = targetX - shooter.x;
             var dy:Number = targetY - shooter.y;
             var dx2:Number = dx * dx;
@@ -56,6 +65,7 @@ package com.ludumlabs.evolution
                 velocity.x = dx * scale;
                 velocity.y = dy * scale;
                 solid = true;
+                didShoot = true;
             }
             else {
                 var message:String;
@@ -63,10 +73,12 @@ package com.ludumlabs.evolution
                 message += targetX + "," + targetY + " - " + shooter.x + "," + shooter.y;
                 trace(message);
             }
+            return didShoot;
         }
 
 		public static function hitEnemy(bullet:FlxObject, enemy:FlxObject):void
 		{
+            FlxG.play(Sounds.Hit);
 			bullet.kill();
 			enemy.hurt(1);
             bullet.exists = false;

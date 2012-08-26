@@ -132,7 +132,9 @@ package com.ludumlabs.evolution
 
         public function _shoot(targetX:int, targetY:int):void
         {
-            BulletSprite.shootGroup(this, bullets, targetX, targetY);
+            if (BulletSprite.shootGroup(this, bullets, targetX, targetY)) {
+                FlxG.play(Sounds.Shoot);
+            }
         }
 
         public function updateRepeat():Boolean

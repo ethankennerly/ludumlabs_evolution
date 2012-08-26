@@ -20,6 +20,8 @@ package com.ludumlabs.evolution
 
             FlxG.mouse.show();
             trace("MenuState");
+
+            FlxG.bgColor = 0xFF999999;
         }
 
         override public function update():void
@@ -31,8 +33,27 @@ package com.ludumlabs.evolution
                 FlxG.score = 0;
                 FlxG.save = 3;
                 FlxG.level = 0;
-                FlxG.switchState(new PlayState());
+                FlxG.play(Sounds.Pickup);
+                FlxG.fade(0xFF999999, 2, MenuState.switchPlay);
             }
+        }
+
+        public static function switchPlay():void
+        {
+            FlxG.switchState(new PlayState());
+        }
+
+        public static function clickToReturn():void
+        {
+            if(FlxG.mouse.justPressed()) {
+                FlxG.play(Sounds.Pickup);
+                FlxG.fade(0xFF999999, 2, MenuState.goto);
+            }
+        }
+
+        public static function goto():void
+        {
+            FlxG.switchState(new MenuState());
         }
     }
 }

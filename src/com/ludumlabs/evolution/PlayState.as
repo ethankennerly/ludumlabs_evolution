@@ -15,6 +15,7 @@ package com.ludumlabs.evolution
         public static var journals:Array;
 
         public var replayers:FlxGroup;
+        public var playing:Boolean;
 
         public var player:PlayerSprite;
         public var enemies:FlxGroup;
@@ -90,6 +91,7 @@ package com.ludumlabs.evolution
             EnemySprite.tilemap = level.mainLayer;
             EnemySprite.player = player;
             EnemySprite.replayers = replayers;
+            playing = true;
         }
 
         /** 
@@ -194,41 +196,67 @@ package com.ludumlabs.evolution
             maySwitchState();
         }
 
-        public function maySwitchState():void
-        {
-            if (0 == enemies.countLiving()) {
-                PlayState.journals = [];
-                if (FlxG.level < FlxG.levels.length - 1) {
-                    FlxG.score += 500 * FlxG.save;
-                    FlxG.level++;
-                    FlxG.save ++;
-                    FlxG.switchState(new PlayState());
-                }
-                else {
-                    FlxG.score += 1000 * FlxG.save;
-                    FlxG.scores.push(FlxG.score);
-                    FlxG.switchState(new WinState());
-                }
-            }
-            else if (!player.alive) {
-                FlxG.save--;
-                if (0 < FlxG.save) {
-                    PlayState.journals.push(player.journal);
-                    player = null;
-                    FlxG.switchState(new ReplayState());
-                }
-                else {
-                    PlayState.journals = [];
-                    FlxG.scores.push(FlxG.score);
-                    FlxG.switchState(new GameOverState());
-                }
-            }
-        }
-        
         protected function overlapEnemy(enemyObject:FlxObject, playerObject:FlxObject):void
         {
             enemyObject.flicker(1);
             playerObject.hurt(1);
+            FlxG.play(Sounds.Explosion);
         }
+
+        public function maySwitchState():void
+        {
+            if (playing) {
+                if (0 == enemies.countLiving()) {
+                    playing = false;
+                    PlayState.journals = [];
+                    if (FlxG.level < FlxG.levels.length - 1) {
+                        FlxG.fade(0xFFCCFFCC, 2, switchPlay);
+                    }
+                    else {
+                        FlxG.fade(0xFFCCCCFF, 2, switchWin);
+                    }
+                }
+                else if (!player.alive) {
+                    playing = false;
+                    FlxG.save--;
+                    if (0 < FlxG.save) {
+                        FlxG.fade(0xFFFFFFCC, 2, switchReplay);
+                    }
+                    else {
+                        FlxG.fade(0xFF333333, 4, switchGameOver);
+                    }
+                }
+            }
+        }
+        
+        public function switchReplay():void
+        {
+            PlayState.journals.push(player.journal);
+            player = null;
+            FlxG.switchState(new ReplayState());
+        }
+
+        public function switchGameOver():void
+        {
+            PlayState.journals = [];
+            FlxG.scores.push(FlxG.score);
+            FlxG.switchState(new GameOverState());
+        }
+
+        private function switchPlay():void
+        {
+            FlxG.score += 500 * FlxG.save;
+            FlxG.level++;
+            FlxG.save ++;
+            FlxG.switchState(new PlayState());
+        }
+
+        private function switchWin():void
+        {
+            FlxG.score += 1000 * FlxG.save;
+            FlxG.scores.push(FlxG.score);
+            FlxG.switchState(new WinState());
+        }
+
     }
 }

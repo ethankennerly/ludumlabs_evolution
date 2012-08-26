@@ -22,10 +22,7 @@ package com.ludumlabs.evolution
         override public function update():void
         {
             super.update();
-            if(FlxG.mouse.justPressed())
-            {
-                FlxG.switchState(new MenuState());
-            }
+            MenuState.clickToReturn();
         }
     }
 }
