@@ -112,11 +112,12 @@ package com.ludumlabs.evolution
         
         public function pathfind():void
         {
-            var path:FlxPath
+            var path:FlxPath;
+            var dest:FlxPoint;
             
             if (pathTimer <= 0) {
                 resetTimer();
-                path = tilemap.findPath(new FlxPoint(x + width / 2, y + height / 2), new FlxPoint(target.x + target.width / 2, target.y + target.height / 2));
+                path = tilemap.findPath(new FlxPoint(x + width / 2, y + height / 2), getDestination());
                 if(path) {
                     pfState = PF_FOLLOW;
                     followPath(path);
@@ -129,6 +130,24 @@ package com.ludumlabs.evolution
             if (pfState == PF_GUESS) {
                 blindFollow();
             }
+        }
+        
+        public function getDestination():FlxPoint
+        {
+            //TODO: use euclidian distance if this is too slow
+            var dist:Number = Math.sqrt(Math.pow((x - target.x), 2) + Math.pow((y - target.y), 2))
+            
+            //TODO: replace Math.random() with a zombie-specific coefficient if we want that behavior
+            var destX:Number = target.velocity.x * Math.sqrt(dist) / 8 * Math.random() + target.x;
+            var destY:Number = target.velocity.y * Math.sqrt(dist) / 8 * Math.random() + target.y;
+            var bounds:FlxRect = tilemap.getBounds();
+            if (destX < bounds.right && destX > bounds.left && destY < bounds.bottom && destY > bounds.top) {
+                return new FlxPoint(destX, destY);
+            } else {
+                // Player is too close to the edge to lead, just return the player's current coords
+                return new FlxPoint(target.x, target.y);
+            }
+            
         }
         
         public function blindFollow():void
