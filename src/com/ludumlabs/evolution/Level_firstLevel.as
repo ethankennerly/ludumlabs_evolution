@@ -7,7 +7,7 @@ package com.ludumlabs.evolution
 	{
 		//Embedded media...
 		[Embed(source="mapCSV_Group1_Map1.csv", mimeType="application/octet-stream")] public var CSV_Group1Map1:Class;
-		[Embed(source="../../../../nethack-3.4.3-16x16.png")] public var Img_Group1Map1:Class;
+		[Embed(source="../../../../tileset.png")] public var Img_Group1Map1:Class;
 
 		//Tilemaps
 		public var layerGroup1Map1:FlxTilemap;
@@ -20,7 +20,7 @@ package com.ludumlabs.evolution
 		{
 			// Generate maps.
 			layerGroup1Map1 = new FlxTilemap;
-			layerGroup1Map1.loadMap( new CSV_Group1Map1, Img_Group1Map1, 16,16, FlxTilemap.OFF, 0, 1, 1 );
+			layerGroup1Map1.loadMap( new CSV_Group1Map1, Img_Group1Map1, 20,20, FlxTilemap.OFF, 0, 1, 3 );
 			layerGroup1Map1.x = 0.000000;
 			layerGroup1Map1.y = 0.000000;
 			layerGroup1Map1.scrollFactor.x = 0.000000;
@@ -41,53 +41,39 @@ package com.ludumlabs.evolution
 
 			boundsMinX = 0;
 			boundsMinY = 0;
-			boundsMaxX = 640;
-			boundsMaxY = 480;
+			boundsMaxX = 800;
+			boundsMaxY = 600;
 
 		}
 
 		override public function addSpritesForLayerGroup1Layer2(onAddCallback:Function = null):void
 		{
-			addSpriteToLayer(BaseZombie, Group1Layer2Group , 195.000, 55.000, 0.000, false, 1, 1, onAddCallback );//"Base"
-			addSpriteToLayer(BaseZombie, Group1Layer2Group , 100.000, 54.000, 0.000, false, 1, 1, onAddCallback );//"Base"
-			addSpriteToLayer(BaseZombie, Group1Layer2Group , 461.000, 55.000, 0.000, false, 1, 1, onAddCallback );//"Base"
-			addSpriteToLayer(BaseZombie, Group1Layer2Group , 409.000, 53.000, 0.000, false, 1, 1, onAddCallback );//"Base"
-			addSpriteToLayer(BaseZombie, Group1Layer2Group , 573.000, 76.000, 0.000, false, 1, 1, onAddCallback );//"Base"
-			addSpriteToLayer(BaseZombie, Group1Layer2Group , 57.000, 35.000, 0.000, false, 1, 1, onAddCallback );//"Base"
-			addSpriteToLayer(BaseZombie, Group1Layer2Group , 559.000, 37.000, 0.000, false, 1, 1, onAddCallback );//"Base"
-			addSpriteToLayer(BaseZombie, Group1Layer2Group , 496.000, 36.000, 0.000, false, 1, 1, onAddCallback );//"Base"
-			addSpriteToLayer(BaseZombie, Group1Layer2Group , 346.000, 34.000, 0.000, false, 1, 1, onAddCallback );//"Base"
-			addSpriteToLayer(BaseZombie, Group1Layer2Group , 193.000, 27.000, 0.000, false, 1, 1, onAddCallback );//"Base"
-			addSpriteToLayer(BaseZombie, Group1Layer2Group , 96.000, 27.000, 0.000, false, 1, 1, onAddCallback );//"Base"
-			addSpriteToLayer(BaseZombie, Group1Layer2Group , 21.000, 47.000, 0.000, false, 1, 1, onAddCallback );//"Base"
-			addSpriteToLayer(BaseZombie, Group1Layer2Group , 432.000, 25.000, 0.000, false, 1, 1, onAddCallback );//"Base"
-			addSpriteToLayer(BaseZombie, Group1Layer2Group , 221.000, 45.000, 0.000, false, 1, 1, onAddCallback );//"Base"
-			addSpriteToLayer(BaseZombie, Group1Layer2Group , 527.000, 33.000, 0.000, false, 1, 1, onAddCallback );//"Base"
-			addSpriteToLayer(BaseZombie, Group1Layer2Group , 165.000, 21.000, 0.000, false, 1, 1, onAddCallback );//"Base"
-			addSpriteToLayer(BaseZombie, Group1Layer2Group , 596.000, 30.000, 0.000, false, 1, 1, onAddCallback );//"Base"
+			addSpriteToLayer(EnemySprite, Group1Layer2Group , 195.000, 55.000, 0.000, false, 1, 1, onAddCallback );//"Zombie"
+			addSpriteToLayer(EnemySprite, Group1Layer2Group , 100.000, 54.000, 0.000, false, 1, 1, onAddCallback );//"Zombie"
+			addSpriteToLayer(EnemySprite, Group1Layer2Group , 306.000, 46.000, 0.000, false, 1, 1, onAddCallback );//"Zombie"
+			addSpriteToLayer(EnemySprite, Group1Layer2Group , 384.000, 52.000, 0.000, false, 1, 1, onAddCallback );//"Zombie"
+			addSpriteToLayer(EnemySprite, Group1Layer2Group , 461.000, 55.000, 0.000, false, 1, 1, onAddCallback );//"Zombie"
+			addSpriteToLayer(EnemySprite, Group1Layer2Group , 529.000, 64.000, 0.000, false, 1, 1, onAddCallback );//"Zombie"
+			addSpriteToLayer(EnemySprite, Group1Layer2Group , 252.000, 40.000, 0.000, false, 1, 1, onAddCallback );//"Zombie"
+			addSpriteToLayer(EnemySprite, Group1Layer2Group , 142.000, 37.000, 0.000, false, 1, 1, onAddCallback );//"Zombie"
+			addSpriteToLayer(EnemySprite, Group1Layer2Group , 409.000, 53.000, 0.000, false, 1, 1, onAddCallback );//"Zombie"
+			addSpriteToLayer(EnemySprite, Group1Layer2Group , 440.000, 48.000, 0.000, false, 1, 1, onAddCallback );//"Zombie"
+			addSpriteToLayer(EnemySprite, Group1Layer2Group , 573.000, 76.000, 0.000, false, 1, 1, onAddCallback );//"Zombie"
+			addSpriteToLayer(EnemySprite, Group1Layer2Group , 57.000, 35.000, 0.000, false, 1, 1, onAddCallback );//"Zombie"
+			addSpriteToLayer(EnemySprite, Group1Layer2Group , 67.000, 68.000, 0.000, false, 1, 1, onAddCallback );//"Zombie"
+			addSpriteToLayer(EnemySprite, Group1Layer2Group , 559.000, 37.000, 0.000, false, 1, 1, onAddCallback );//"Zombie"
+			addSpriteToLayer(EnemySprite, Group1Layer2Group , 496.000, 36.000, 0.000, false, 1, 1, onAddCallback );//"Zombie"
+			addSpriteToLayer(EnemySprite, Group1Layer2Group , 346.000, 34.000, 0.000, false, 1, 1, onAddCallback );//"Zombie"
+			addSpriteToLayer(EnemySprite, Group1Layer2Group , 193.000, 27.000, 0.000, false, 1, 1, onAddCallback );//"Zombie"
+			addSpriteToLayer(EnemySprite, Group1Layer2Group , 96.000, 27.000, 0.000, false, 1, 1, onAddCallback );//"Zombie"
+			addSpriteToLayer(EnemySprite, Group1Layer2Group , 21.000, 47.000, 0.000, false, 1, 1, onAddCallback );//"Zombie"
+			addSpriteToLayer(EnemySprite, Group1Layer2Group , 432.000, 25.000, 0.000, false, 1, 1, onAddCallback );//"Zombie"
+			addSpriteToLayer(EnemySprite, Group1Layer2Group , 278.000, 23.000, 0.000, false, 1, 1, onAddCallback );//"Zombie"
+			addSpriteToLayer(EnemySprite, Group1Layer2Group , 221.000, 45.000, 0.000, false, 1, 1, onAddCallback );//"Zombie"
+			addSpriteToLayer(EnemySprite, Group1Layer2Group , 527.000, 33.000, 0.000, false, 1, 1, onAddCallback );//"Zombie"
+			addSpriteToLayer(EnemySprite, Group1Layer2Group , 165.000, 21.000, 0.000, false, 1, 1, onAddCallback );//"Zombie"
+			addSpriteToLayer(EnemySprite, Group1Layer2Group , 596.000, 30.000, 0.000, false, 1, 1, onAddCallback );//"Zombie"
 			addSpriteToLayer(PlayerSprite, Group1Layer2Group , 336.000, 327.000, 0.000, false, 1, 1, onAddCallback );//"Player"
-			addSpriteToLayer(ZippyZombie, Group1Layer2Group , 262.000, 67.000, 0.000, false, 1, 1, onAddCallback );//"Zippy"
-			addSpriteToLayer(ZippyZombie, Group1Layer2Group , 343.000, 64.000, 0.000, false, 1, 1, onAddCallback );//"Zippy"
-			addSpriteToLayer(ZippyZombie, Group1Layer2Group , 146.000, 61.000, 0.000, false, 1, 1, onAddCallback );//"Zippy"
-			addSpriteToLayer(ZippyZombie, Group1Layer2Group , 89.000, 80.000, 0.000, false, 1, 1, onAddCallback );//"Zippy"
-			addSpriteToLayer(ZippyZombie, Group1Layer2Group , 388.000, 76.000, 0.000, false, 1, 1, onAddCallback );//"Zippy"
-			addSpriteToLayer(ZippyZombie, Group1Layer2Group , 493.000, 72.000, 0.000, false, 1, 1, onAddCallback );//"Zippy"
-			addSpriteToLayer(ZippyZombie, Group1Layer2Group , 597.000, 71.000, 0.000, false, 1, 1, onAddCallback );//"Zippy"
-			addSpriteToLayer(ZippyZombie, Group1Layer2Group , 303.000, 71.000, 0.000, false, 1, 1, onAddCallback );//"Zippy"
-			addSpriteToLayer(ZippyZombie, Group1Layer2Group , 213.000, 71.000, 0.000, false, 1, 1, onAddCallback );//"Zippy"
-			addSpriteToLayer(ZippyZombie, Group1Layer2Group , 34.000, 77.000, 0.000, false, 1, 1, onAddCallback );//"Zippy"
-			addSpriteToLayer(ZippyZombie, Group1Layer2Group , 369.000, 26.000, 0.000, false, 1, 1, onAddCallback );//"Zippy"
-			addSpriteToLayer(ZippyZombie, Group1Layer2Group , 114.000, 26.000, 0.000, false, 1, 1, onAddCallback );//"Zippy"
-			addSpriteToLayer(ZippyZombie, Group1Layer2Group , 25.000, 25.000, 0.000, false, 1, 1, onAddCallback );//"Zippy"
-			addSpriteToLayer(ZippyZombie, Group1Layer2Group , 547.000, 20.000, 0.000, false, 1, 1, onAddCallback );//"Zippy"
-			addSpriteToLayer(TankZombie, Group1Layer2Group , 21.000, 104.000, 0.000, false, 1, 1, onAddCallback );//"Tank"
-			addSpriteToLayer(TankZombie, Group1Layer2Group , 282.000, 17.000, 0.000, false, 1, 1, onAddCallback );//"Tank"
-			addSpriteToLayer(TankZombie, Group1Layer2Group , 604.000, 140.000, 0.000, false, 1, 1, onAddCallback );//"Tank"
-			addSpriteToLayer(LurkerZombie, Group1Layer2Group , 578.000, 418.000, 0.000, false, 1, 1, onAddCallback );//"Lurker"
-			addSpriteToLayer(LurkerZombie, Group1Layer2Group , 150.000, 277.000, 0.000, false, 1, 1, onAddCallback );//"Lurker"
-			addSpriteToLayer(LurkerZombie, Group1Layer2Group , 491.000, 213.000, 0.000, false, 1, 1, onAddCallback );//"Lurker"
-			addSpriteToLayer(LurkerZombie, Group1Layer2Group , 164.000, 199.000, 0.000, false, 1, 1, onAddCallback );//"Lurker"
-			addSpriteToLayer(LurkerZombie, Group1Layer2Group , 487.000, 175.000, 0.000, false, 1, 1, onAddCallback );//"Lurker"
 		}
 
 

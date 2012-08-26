@@ -15,7 +15,7 @@
     <flashDefaultName>0</flashDefaultName>
     <projectorWinDefaultName>1</projectorWinDefaultName>
     <projectorMacDefaultName>1</projectorMacDefaultName>
-    <htmlDefaultName>1</htmlDefaultName>
+    <htmlDefaultName>0</htmlDefaultName>
     <gifDefaultName>1</gifDefaultName>
     <jpegDefaultName>1</jpegDefaultName>
     <pngDefaultName>1</pngDefaultName>
@@ -25,7 +25,7 @@
     <flashFileName>./bin/Evolution.swf</flashFileName>
     <projectorWinFileName>Evolution.exe</projectorWinFileName>
     <projectorMacFileName>Evolution.app</projectorMacFileName>
-    <htmlFileName>Evolution.html</htmlFileName>
+    <htmlFileName>./bin/evolution.html</htmlFileName>
     <gifFileName>Evolution.gif</gifFileName>
     <jpegFileName>Evolution.jpg</jpegFileName>
     <pngFileName>Evolution.png</pngFileName>

@@ -1,0 +1,52 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="RoofDiagonal" itemID="503a8698-0000068d" symbolType="graphic" lastModified="1346013497">
+  <timeline>
+    <DOMTimeline name="RoofDiagonal">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4FFF4F" outline="true" useOutlineView="true" visible="false" layerType="mask">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMRectangleObject objectWidth="9.5" objectHeight="9.5" x="0" y="0" lockFlag="true">
+                  <matrix>
+                    <Matrix a="2.10212707519531" d="2.10018920898438" tx="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="4.85" y="4.95"/>
+                  </transformationPoint>
+                  <fill>
+                    <SolidColor color="#666666"/>
+                  </fill>
+                </DOMRectangleObject>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC" parentLayerIndex="0" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMRectangleObject objectWidth="9.5" objectHeight="9.5" x="0" y="0" lockFlag="true">
+                  <matrix>
+                    <Matrix a="2.10958862304688" b="-0.037384033203125" c="-0.0248565673828125" d="1.40898132324219" tx="0.1" ty="0.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="4.6" y="5"/>
+                  </transformationPoint>
+                  <fill>
+                    <RadialGradient>
+                      <matrix>
+                        <Matrix a="0.0108642578125" b="-0.004791259765625" c="0.003143310546875" d="0.0071258544921875" tx="2.85" ty="2.45"/>
+                      </matrix>
+                      <GradientEntry color="#FFFFFF" ratio="0"/>
+                      <GradientEntry color="#CCCCCC" ratio="1"/>
+                    </RadialGradient>
+                  </fill>
+                </DOMRectangleObject>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>
