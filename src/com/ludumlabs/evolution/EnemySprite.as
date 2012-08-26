@@ -100,14 +100,41 @@ package com.ludumlabs.evolution
 			y = b2.y(body) - 0.5*height;
 		}
         
+        public function getTarget():PlayerSprite
+        {
+            /////TODO: Remove the next two lines and make "targets" a static variable in lieu of class.target
+            var targets:FlxGroup = new FlxGroup;
+            targets.add(target);
+            
+            
+            
+            //trace(targets.members.length);
+            var index:Number = 0;
+            var tmp:Number;
+            var minDist:Number = Math.abs(x - targets.members[0].x) + Math.abs(y - targets.members[0].y);
+            var bestIndex:Number = 0;
+            
+            while (targets.members.length > (++index)) {
+                tmp = Math.abs(x - targets.members[index].x) + Math.abs(y - targets.members[index].y)
+                if (tmp < minDist) {
+                    minDist = tmp;
+                    bestIndex = index;
+                }
+            }
+            
+            //TODO: pick the closest
+            return targets.members[bestIndex];
+        }
+        
         public function pathfind():void
         {
             var path:FlxPath;
             var dest:FlxPoint;
+            var target:PlayerSprite = getTarget();
             
             if (pathTimer <= 0) {
                 resetTimer();
-                path = tilemap.findPath(new FlxPoint(x + width / 2, y + height / 2), getDestination());
+                path = tilemap.findPath(new FlxPoint(x + width / 2, y + height / 2), getDestination(target));
                 if(path) {
                     pfState = PF_FOLLOW;
                     followPath(path);
@@ -118,14 +145,16 @@ package com.ludumlabs.evolution
             }
             
             if (pfState == PF_GUESS) {
-                blindFollow();
+                blindFollow(target);
             }
         }
         
-        public function getDestination():FlxPoint
+        public function getDestination(target:PlayerSprite):FlxPoint
         {
-            //TODO: use euclidian distance if this is too slow
-            var dist:Number = Math.sqrt(Math.pow((x - target.x), 2) + Math.pow((y - target.y), 2))
+            //var dist:Number = Math.sqrt(Math.pow((x - getTarget().x), 2) + Math.pow((y - getTarget().y), 2))
+            //TODO: use non-euclidian distance if we have extra cycles, though euclidian may be more appropriate given that diagonal is faster
+            
+            var dist:Number = Math.abs(x - target.x) + Math.abs(y - target.y);
             
             //TODO: replace Math.random() with a zombie-specific coefficient if we want that behavior
             var destX:Number = target.velocity.x * Math.sqrt(dist) / 8 * Math.random() + target.x;
@@ -140,7 +169,7 @@ package com.ludumlabs.evolution
             
         }
         
-        public function blindFollow():void
+        public function blindFollow(target:PlayerSprite):void
         {
             velocity.x = 0;
             velocity.y = 0;
