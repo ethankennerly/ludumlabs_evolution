@@ -53,6 +53,7 @@ package com.ludumlabs.evolution
             
             bodyMass = 1;
             maxImpulse = 1;
+            health = 3;
             
             tempVec = new b2Vec2();
         }
