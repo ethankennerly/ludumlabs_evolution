@@ -6,6 +6,7 @@ package com.ludumlabs.evolution
     {
         public static var speed:int = 40;
         public static var target:PlayerSprite;
+        public static var tilemap:FlxTilemap;
 
         /**
          * Load sprite sheet and position at center of image.
@@ -34,6 +35,11 @@ package com.ludumlabs.evolution
         {
             velocity.x = 0;
             velocity.y = 0;
+            
+            //TODO: this still doesn't work
+            //pathfind();
+            //return;
+            
             if (target.x !== undefined) {
                 if (target.x < x - 1) {
                     velocity.x = -speed;
@@ -50,6 +56,17 @@ package com.ludumlabs.evolution
                     velocity.y = speed;
                 }
             }
+        }
+        
+        public function pathfind():void
+        {
+            //TODO: Make this work
+            if (!tilemap || !target) return;
+            var path:FlxPath = tilemap.findPath(origin, target.origin);
+            if (!path) return;
+            followPath(path);
+            return;
+            //var nextStep:FlxPoint = path.nodes[0];
         }
 
         override public function update():void

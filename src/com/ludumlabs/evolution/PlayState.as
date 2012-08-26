@@ -30,6 +30,8 @@ package com.ludumlabs.evolution
             world.DrawDebugData();
             
             EnemySprite.target = player;
+            EnemySprite.tilemap = level.mainLayer;
+            
             add(player.bullets);
             mobiles.add(player.bullets);
             mobiles.add(player);
