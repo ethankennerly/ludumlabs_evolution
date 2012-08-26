@@ -1,5 +1,6 @@
 package com.ludumlabs.evolution
 {
+    import flash.events.KeyboardEvent;
     import dja.utils.b2;
     import Box2D.Dynamics.b2World;
     import Box2D.Dynamics.b2Body;
@@ -11,11 +12,16 @@ package com.ludumlabs.evolution
         public static var speed:int = 80;
         public static var bulletMax:int = 64;
         public var bullets:FlxGroup;
+        public var move:Function;
+        public var shoot:Function;
+        public var spawn:Function;
+        public var journal:Journal;
         
         public var body:b2Body;
 
         /**
          * Load sprite sheet and position at center of image.
+         * Record any call to "move" or "shoot" in journal.
          */
         public function PlayerSprite(X:int = 0, Y:int = 0, SimpleGraphic:Class = null)
         {
@@ -33,12 +39,22 @@ package com.ludumlabs.evolution
             for (var b:int; b < bulletMax; b++) {
                 bullets.add(new BulletSprite());
             }
+            journal = new Journal();
+            move = journal.decorate("move", this, _move);
+            shoot = journal.decorate("shoot", this, _shoot);
+            spawn = journal.decorate("spawn", this, _spawn);
+            spawn(X, Y);
         }
         
         public function initPhysics(world:b2World):void
         {
             body = b2.body(world, { x:x + 0.5*width, y:y + 0.5*height });
             b2.circle(body, { radius:0.5*width });
+        }
+
+        public function _spawn(spawnX:int, spawnY:int):void
+        {
+            reset(spawnX, spawnY);
         }
 
         /**
@@ -48,33 +64,67 @@ package com.ludumlabs.evolution
         public function updateInput():void 
         {
             if (alive) {
-                mayMove();
-                mayShoot();
+                if (journal.replaying) {
+                    journal.update();
+                }
+                else {
+                    mayMove();
+                    mayShoot();
+                }
             }
         }
 
         public function mayMove():void 
         {
-            velocity.x = 0;
-            velocity.y = 0;
-            if (FlxG.keys.pressed("LEFT") || FlxG.keys.pressed("A")) {
-                velocity.x = -speed;
+            if (FlxG.keys.justPressed("LEFT") || FlxG.keys.justPressed("A")) {
+                move("x", -speed);
             }
-            else if (FlxG.keys.pressed("RIGHT") || FlxG.keys.pressed("D")) {
-                velocity.x = speed;
+            else if (FlxG.keys.justReleased("LEFT") || FlxG.keys.justReleased("A")) {
+                move("x", 0);
             }
-            if (FlxG.keys.pressed("UP") || FlxG.keys.pressed("W")) {
-                velocity.y = -speed;
+            if (FlxG.keys.justPressed("RIGHT") || FlxG.keys.justPressed("D")) {
+                move("x", speed);
             }
-            else if (FlxG.keys.pressed("DOWN") || FlxG.keys.pressed("S")) {
-                velocity.y = speed;
+            else if (FlxG.keys.justReleased("RIGHT") || FlxG.keys.justReleased("D")) {
+                move("x", 0);
             }
+            if (FlxG.keys.justPressed("UP") || FlxG.keys.justPressed("W")) {
+                move("y", -speed);
+            }
+            else if (FlxG.keys.justReleased("UP") || FlxG.keys.justReleased("W")) {
+                move("y", 0);
+            }
+            if (FlxG.keys.justPressed("DOWN") || FlxG.keys.justPressed("S")) {
+                move("y", speed);
+            }
+            else if (FlxG.keys.justReleased("DOWN") || FlxG.keys.justReleased("S")) {
+                move("y", 0);
+            }
+        }
+
+        public function _move(axis:String, velocity:Number):void
+        {
+            this.velocity[axis] = velocity;
         }
 
         public function mayShoot():void
         {
             if (FlxG.mouse.justPressed()) {
-                BulletSprite.shootGroup(this, bullets, FlxG.mouse.screenX, FlxG.mouse.screenY);
+                shoot(FlxG.mouse.screenX, FlxG.mouse.screenY);
+            }
+        }
+
+        public function _shoot(targetX:int, targetY:int):void
+        {
+            BulletSprite.shootGroup(this, bullets, targetX, targetY);
+        }
+
+        override public function kill():void
+        {
+            super.kill();
+            if (!journal.replaying) {
+                journal.replay(true);
+                alive = true;
             }
         }
     }
