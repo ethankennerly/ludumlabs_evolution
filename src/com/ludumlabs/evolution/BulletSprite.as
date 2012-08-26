@@ -70,6 +70,7 @@ package com.ludumlabs.evolution
 			bullet.kill();
 			enemy.hurt(1);
             bullet.exists = false;
+            FlxG.score += 100;
 		}
     }
 }

@@ -48,7 +48,7 @@ package com.ludumlabs.evolution
                     methodArgs.push(args);
                     methods.push(uniqueName);
                     if (verbose) {
-                        trace("Journal.record " + uniqueName + " delay " + delay + " args " + args);
+                        // trace("Journal.record " + uniqueName + " delay " + delay + " args " + args);
                     }
                     previousRecord = now;
                 }

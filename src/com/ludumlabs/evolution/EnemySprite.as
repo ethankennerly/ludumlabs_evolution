@@ -10,7 +10,10 @@ package com.ludumlabs.evolution
 
     public class EnemySprite extends FlxSprite
     {
-        public static var speed:int = 40;
+        /** 
+         * Currently speed 5 to 80 shows no effect on enemy speed. 
+         */
+        public static var speed:int = 5;
         public static var target:PlayerSprite;
         public static var tilemap:FlxTilemap;
         
