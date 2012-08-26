@@ -14,7 +14,8 @@ package com.ludumlabs.evolution
          * Currently speed 5 to 80 shows no effect on enemy speed. 
          */
         public static var speed:int = 5;
-        public static var target:PlayerSprite;
+        public static var player:PlayerSprite;
+        public static var replayers:FlxGroup;
         public static var tilemap:FlxTilemap;
         
         private const PATHFINDING_DELAY:Number = 100;
@@ -105,28 +106,22 @@ package com.ludumlabs.evolution
         
         public function getTarget():PlayerSprite
         {
-            /////TODO: Remove the next two lines and make "targets" a static variable in lieu of class.target
-            var targets:FlxGroup = new FlxGroup;
-            targets.add(target);
-            
-            
-            
-            //trace(targets.members.length);
-            var index:Number = 0;
+            var index:Number = -1;
             var tmp:Number;
-            var minDist:Number = Math.abs(x - targets.members[0].x) + Math.abs(y - targets.members[0].y);
-            var bestIndex:Number = 0;
+            var minDist:Number = Math.abs(x - player.x) + Math.abs(y - player.y);
+            var bestTarget:PlayerSprite = player; //start with the current player since we know they're alive
             
-            while (targets.members.length > (++index)) {
-                tmp = Math.abs(x - targets.members[index].x) + Math.abs(y - targets.members[index].y)
-                if (tmp < minDist) {
-                    minDist = tmp;
-                    bestIndex = index;
+            while (replayers.members.length > (++index)) {
+                if (replayers.members[index].alive) {                
+                    tmp = Math.abs(x - replayers.members[index].x) + Math.abs(y - replayers.members[index].y)
+                    if (tmp < minDist) {
+                        minDist = tmp;
+                        bestTarget = replayers.members[index];
+                    }
                 }
             }
             
-            //TODO: pick the closest
-            return targets.members[bestIndex];
+            return bestTarget;
         }
         
         public function pathfind():void

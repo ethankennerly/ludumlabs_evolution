@@ -84,10 +84,12 @@ package com.ludumlabs.evolution
             
             //world.DrawDebugData();
             
-            EnemySprite.target = player;
-            EnemySprite.tilemap = level.mainLayer;
             mobiles.add(enemies);
             replayers = replay(player);
+            
+            EnemySprite.tilemap = level.mainLayer;
+            EnemySprite.player = player;
+            EnemySprite.replayers = replayers;
         }
 
         /** 
