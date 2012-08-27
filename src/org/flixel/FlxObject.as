@@ -15,6 +15,7 @@ package org.flixel
 	 */
 	public class FlxObject extends FlxBasic
 	{
+        protected static const LUDUM_LABS_KLUDGE:Number = 3;
 		/**
 		 * Generic value for "left" Used by <code>facing</code>, <code>allowCollisions</code>, and <code>touching</code>.
 		 */
@@ -623,7 +624,7 @@ package org.flixel
 			}
 			else
 			{
-				if(Math.sqrt(deltaX*deltaX + deltaY*deltaY) < pathSpeed*FlxG.elapsed)
+				if(Math.sqrt(deltaX*deltaX + deltaY*deltaY) < LUDUM_LABS_KLUDGE*pathSpeed*FlxG.elapsed)
 					node = advancePath();
 			}
 			
