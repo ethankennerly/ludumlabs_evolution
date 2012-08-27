@@ -325,6 +325,11 @@
      </extendedSwatchLists>
      <PrinterSettings platform="macintosh"/>
      <publishHistory>
+          <PublishItem publishSize="183261" publishTime="1346029138"/>
+          <PublishItem publishSize="137526" publishTime="1346029121"/>
+          <PublishItem publishSize="205566" publishTime="1346028736" publishDebug="true"/>
+          <PublishItem publishSize="205649" publishTime="1346028629" publishDebug="true"/>
+          <PublishItem publishSize="204645" publishTime="1346028601" publishDebug="true"/>
           <PublishItem publishSize="204091" publishTime="1346027478" publishDebug="true"/>
           <PublishItem publishSize="204136" publishTime="1346027411" publishDebug="true"/>
           <PublishItem publishSize="204196" publishTime="1346027225" publishDebug="true"/>
@@ -340,10 +345,5 @@
           <PublishItem publishSize="203985" publishTime="1346025738" publishDebug="true"/>
           <PublishItem publishSize="203952" publishTime="1346025421" publishDebug="true"/>
           <PublishItem publishSize="204015" publishTime="1346025328" publishDebug="true"/>
-          <PublishItem publishSize="203612" publishTime="1346022849" publishDebug="true"/>
-          <PublishItem publishSize="203669" publishTime="1346022395" publishDebug="true"/>
-          <PublishItem publishSize="203509" publishTime="1346022134" publishDebug="true"/>
-          <PublishItem publishSize="200846" publishTime="1346021857" publishDebug="true"/>
-          <PublishItem publishSize="201018" publishTime="1346021720" publishDebug="true"/>
      </publishHistory>
 </DOMDocument>
