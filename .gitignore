@@ -21,3 +21,7 @@ SymDepend.cache
 
 # Compiled, avoid merge conflict
 bin/*.swf
+# Mac file
+.DS_Store
+# compressed
+*.zip
