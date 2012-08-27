@@ -11,7 +11,7 @@ package com.ludumlabs.evolution
             offset.x = frameWidth * 0.5;
             offset.y = frameHeight * 0.5;
             centerOffsets();
-			speed *= 0.75;
+			speed *= 0.85;
             pathfindingDelay *= 1.5;
             health *= 4;
         }

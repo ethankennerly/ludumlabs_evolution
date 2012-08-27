@@ -22,6 +22,9 @@ package com.ludumlabs.evolution
         protected static const PF_GUESS = 1;
         protected static const BLIND_FOLLOW_WIGGLE_ROOM = 4;
         
+        protected static const BASE_SPEED:Number = 50;
+        protected static const SPEED_VARIANCE:Number = 20;
+        
         public var pfState:Number = PF_GUESS;
         public var pathTimer:Number = 0;
         
@@ -40,6 +43,9 @@ package com.ludumlabs.evolution
         public function EnemySprite(X:int = 0, Y:int = 0, SimpleGraphic:Class = null)
         {
             super(X, Y);
+            
+            speed = BASE_SPEED + FlxG.random()*SPEED_VARIANCE;
+            
             var sheet:EnemySpriteSheet = new EnemySpriteSheet();
             loadGraphic(EnemySpriteSheet, true, true, sheet.frameWidth, sheet.frameHeight);
             offset.x = frameWidth * 0.5;
