@@ -15,7 +15,8 @@ package com.ludumlabs.evolution
         public var replayIndex:int;
         public var replaying:Boolean;
         public var recording:Boolean;
-        public var verbose:Boolean = true;
+        public var enabled:Boolean;
+        public var verbose:Boolean = false;
 
         public function Journal()
         {
@@ -85,6 +86,19 @@ package com.ludumlabs.evolution
             accumulated = 0;
             replayIndex = 0;
             replaying = true;
+            enabled = true;
+        }
+
+        public function pause():void
+        {
+            enabled = false;
+        }
+
+        public function resume():void
+        {
+            previousUpdate = getTimer();
+            accumulated = 0;
+            enabled = true;
         }
 
         public function update(now:int = -1):void
@@ -93,7 +107,7 @@ package com.ludumlabs.evolution
                 now = getTimer();
             }
             accumulated += now - previousUpdate;
-            if (replaying) {
+            if (replaying && enabled) {
                 if (1 <= delays.length && replayIndex <= delays.length - 1) {
                     var delay:int = delays[replayIndex];
                     if (delay <= accumulated) {

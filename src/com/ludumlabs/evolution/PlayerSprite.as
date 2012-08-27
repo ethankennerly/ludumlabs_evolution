@@ -6,6 +6,9 @@ package com.ludumlabs.evolution
     {
         public static var speed:int = 80;
         public static var bulletMax:int = 64;
+        public static var tilemap:FlxTilemap;
+        public static var state:PlayState;
+        public static var debugPath:Boolean = false;
         public var shootInterval:Number = 0.25;
         public var mouseAccumulated:Number = 0.125;
         public var bullets:FlxGroup;
@@ -15,7 +18,7 @@ package com.ludumlabs.evolution
         public var journal:Journal;
         public var lastXVelocity:Number;
         public var lastYVelocity:Number;
-        public static var state:PlayState;
+        public var waypoint:FlxPoint;
 
         /**
          * Load sprite sheet and position at center of image.
@@ -31,6 +34,7 @@ package com.ludumlabs.evolution
             addAnimation("idle", [0], 4);
             addAnimation("dead", [1], 4);
             play("dead");
+            waypoint = null;
         }
 
         public function createJournal(X:int, Y:int):Journal
@@ -72,6 +76,7 @@ package com.ludumlabs.evolution
         {
             if (alive) {
                 if (journal.replaying) {
+                    followWaypoint();
                     journal.update();
                 }
                 else {
@@ -79,6 +84,51 @@ package com.ludumlabs.evolution
                     mayShoot();
                     redoMove();
                 }
+            }
+        }
+
+        /**
+         * One tile away.
+         */
+        public function far(fromX:Number, fromY:Number):Boolean
+        {
+            var dx:int = Math.abs(x - fromX);
+            var dy:int = Math.abs(y - fromY);
+            var distance:int = Math.sqrt(dx * dx + dy * dy);
+            if (20 < distance) {
+                if (debugPath) {
+                    trace(int(x) + "," + int(y) + " is " + distance + " far from " + fromX + "," + fromY);
+                }
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+
+        public function followWaypoint():void
+        {
+            if (null != waypoint) {
+                if (far(waypoint.x, waypoint.y)) {
+                    path = tilemap.findPath(new FlxPoint(x + width / 2, y + width / 2),
+                        waypoint);
+                    if (null != path) {
+                        followPath(path, 1.5 * speed);
+                    }
+                }
+                else {
+                    stopFollowingPath();
+                    journal.resume();
+                    waypoint = null;
+                }
+            }
+        }
+
+        override public function draw():void
+        {
+            super.draw();
+            if (debugPath && null != path) {
+                path.drawDebug();
             }
         }
 
@@ -99,19 +149,23 @@ package com.ludumlabs.evolution
                 tempVelocityY += speed;
             }
             if (tempVelocityX != lastXVelocity) {
-                move("x", tempVelocityX);
+                move("x", tempVelocityX, x, y);
             }
             if (tempVelocityY != lastYVelocity) {
-                move("y", tempVelocityY);
+                move("y", tempVelocityY, x, y);
             }
         }
 
-        public function _move(axis:String, vel:Number):void
+        public function _move(axis:String, vel:Number, pointX:int, pointY:int):void
         {
             this.velocity[axis] = vel;
-            
             if (axis == "x") lastXVelocity = vel;
             if (axis == "y") lastYVelocity = vel;
+           
+            if (far(pointX, pointY)) {
+                waypoint = new FlxPoint(pointX + width / 2, pointY + height / 2);
+                journal.pause();
+            }
         }
         
         // This is to address the bug of a directional key being ignored if you're running into/along a wall

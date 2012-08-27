@@ -1,4 +1,4 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="RoofDiagonal" itemID="503a8698-0000068d" symbolType="graphic" lastModified="1346013497">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="RoofDiagonal" itemID="503a8698-0000068d" symbolType="graphic" lastModified="1346014391">
   <timeline>
     <DOMTimeline name="RoofDiagonal">
       <layers>
@@ -25,23 +25,26 @@
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <elements>
-                <DOMRectangleObject objectWidth="9.5" objectHeight="9.5" x="0" y="0" lockFlag="true">
-                  <matrix>
-                    <Matrix a="2.10958862304688" b="-0.037384033203125" c="-0.0248565673828125" d="1.40898132324219" tx="0.1" ty="0.2"/>
-                  </matrix>
-                  <transformationPoint>
-                    <Point x="4.6" y="5"/>
-                  </transformationPoint>
-                  <fill>
-                    <RadialGradient>
-                      <matrix>
-                        <Matrix a="0.0108642578125" b="-0.004791259765625" c="0.003143310546875" d="0.0071258544921875" tx="2.85" ty="2.45"/>
-                      </matrix>
-                      <GradientEntry color="#FFFFFF" ratio="0"/>
-                      <GradientEntry color="#CCCCCC" ratio="1"/>
-                    </RadialGradient>
-                  </fill>
-                </DOMRectangleObject>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <RadialGradient>
+                        <matrix>
+                          <Matrix a="0.023040771484375" b="-0.0071563720703125" c="0.0064544677734375" d="0.009918212890625" tx="6.05" ty="3.55"/>
+                        </matrix>
+                        <GradientEntry color="#FFFFFF" ratio="0"/>
+                        <GradientEntry color="#CCCCCC" ratio="1"/>
+                      </RadialGradient>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-3 272|2 4!2 4|403 -3!403 -3|398 265!398 265|-3 272"/>
+                    <Edge cubics="!2 4(;2,4 403,-3 403,-3q2 4 403 -3);"/>
+                    <Edge cubics="!403 -3(;403,-3 398,265 398,265q403 -3 398 265);"/>
+                    <Edge cubics="!398 265(;398,265 -3,272 -3,272q398 265 -3 272);"/>
+                    <Edge cubics="!-3 272(;-3,272 2,4 2,4q-3 272 2 4);"/>
+                  </edges>
+                </DOMShape>
               </elements>
             </DOMFrame>
           </frames>

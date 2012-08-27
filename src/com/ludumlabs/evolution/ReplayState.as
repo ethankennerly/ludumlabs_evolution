@@ -17,9 +17,7 @@ package com.ludumlabs.evolution
             t.alignment = "center";
             add(t);
             
-            trace("ReplayState");
             FlxG.fade(0xFF999999, 2, MenuState.switchPlay);
         }
-
     }
 }

@@ -22,7 +22,6 @@ package com.ludumlabs.evolution
             PlayState.addHud(this);
 
             FlxG.mouse.show();
-            trace("MenuState");
 
             FlxG.bgColor = 0xFF999999;
         }

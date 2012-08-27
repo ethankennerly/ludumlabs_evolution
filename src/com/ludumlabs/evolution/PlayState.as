@@ -89,6 +89,7 @@ package com.ludumlabs.evolution
             replayers = replay(player);
             
             EnemySprite.tilemap = level.mainLayer;
+            PlayerSprite.tilemap = level.mainLayer;
             EnemySprite.player = player;
             EnemySprite.replayers = replayers;
             playing = true;
