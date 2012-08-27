@@ -2,14 +2,14 @@
 <project>
   <version>3.0.4</version>
   <bgColor>0x999999</bgColor>
-  <viewPos x="NaN" y="NaN"/>
+  <viewPos x="0" y="0"/>
   <firstLayersTop>false</firstLayersTop>
   <spriteEntries currentId="6">
-    <tileEntry name="Player" idx="1" className="PlayerSprite" image="nethack-3.4.3-16x16.png" offsetX="64" offsetY="16" width="16" height="16" anchorX="0" anchorY="0" centerAnchor="false" boundsX="0" boundsY="0" boundsWidth="16" boundsHeight="16" constructor="" creation="" exports="true" canScale="false" canRotate="false" surfaceObject="false"/>
-    <tileEntry name="Zombie" idx="2" className="BaseZombie" image="nethack-3.4.3-16x16.png" offsetX="96" offsetY="96" width="16" height="16" anchorX="0" anchorY="0" centerAnchor="false" boundsX="0" boundsY="0" boundsWidth="16" boundsHeight="16" constructor="" creation="" exports="true" canScale="true" canRotate="true" surfaceObject="false" selected="true"/>
+    <tileEntry name="Player" idx="1" className="PlayerSprite" image="data_src/Player.png" offsetX="0" offsetY="0" width="17" height="17" anchorX="0" anchorY="0" centerAnchor="false" boundsX="0" boundsY="0" boundsWidth="1" boundsHeight="1" constructor="" creation="" exports="true" canScale="false" canRotate="false" surfaceObject="false"/>
+    <tileEntry name="Zombie" idx="2" className="BaseZombie" image="data_src/Enemy.png" offsetX="0" offsetY="0" width="17" height="17" anchorX="0" anchorY="0" centerAnchor="false" boundsX="0" boundsY="0" boundsWidth="1" boundsHeight="1" constructor="" creation="" exports="true" canScale="true" canRotate="true" surfaceObject="false"/>
     <tileEntry name="ZippyZombie" idx="3" className="ZippyZombie" image="nethack-3.4.3-16x16.png" offsetX="112" offsetY="96" width="16" height="16" anchorX="0" anchorY="0" centerAnchor="false" boundsX="0" boundsY="0" boundsWidth="16" boundsHeight="16" constructor="" creation="" exports="true" canScale="true" canRotate="true" surfaceObject="false"/>
     <tileEntry name="TankZombie" idx="4" className="TankZombie" image="nethack-3.4.3-16x16.png" offsetX="128" offsetY="96" width="16" height="16" anchorX="0" anchorY="0" centerAnchor="false" boundsX="0" boundsY="0" boundsWidth="16" boundsHeight="16" constructor="" creation="" exports="true" canScale="true" canRotate="true" surfaceObject="false"/>
-    <tileEntry name="LurkerZombie" idx="5" className="LurkerZombie" image="nethack-3.4.3-16x16.png" offsetX="144" offsetY="96" width="16" height="16" anchorX="0" anchorY="0" centerAnchor="false" boundsX="0" boundsY="0" boundsWidth="16" boundsHeight="16" constructor="" creation="" exports="true" canScale="true" canRotate="true" surfaceObject="false"/>
+    <tileEntry name="LurkerZombie" idx="5" className="LurkerZombie" image="nethack-3.4.3-16x16.png" offsetX="144" offsetY="96" width="16" height="16" anchorX="0" anchorY="0" centerAnchor="false" boundsX="0" boundsY="0" boundsWidth="16" boundsHeight="16" constructor="" creation="" exports="true" canScale="true" canRotate="true" surfaceObject="false" selected="true"/>
   </spriteEntries>
   <layers>
     <group name="Group1" id="0" xScroll="1" yScroll="1" visible="true" open="true" locked="false" exports="true">
@@ -51,21 +51,39 @@
       <spritelayer name="Layer2" id="1" xScroll="1" yScroll="1" visible="true" locked="false" exports="true" aligned="false" sort="false" selected="true">
         <sprite guid="3DEB7BBB-E161-A8F0-12E7-2F9A96A0FEE1" x="241" y="252" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="1"/>
         <sprite guid="D2368394-BB24-F675-04C0-F4C53F7604F5" x="579" y="253" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="2"/>
-        <sprite guid="5D45BA04-9AE8-BA6A-C7BB-669B2F551EFE" x="580" y="277" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="2"/>
-        <sprite guid="605C3915-475E-EFE8-702E-1D4A89FDB334" x="572" y="299" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="2"/>
-        <sprite guid="EA7CD79E-2B52-1FA2-43FD-CE92C43670B2" x="577" y="327" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="2"/>
-        <sprite guid="30B756F0-D1FB-8AAF-4074-56340E09FE21" x="574" y="354" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="2"/>
-        <sprite guid="53BEE24D-9EF3-0032-CE5A-78BC63F5C8B1" x="577" y="381" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="2"/>
-        <sprite guid="E5E155C4-5F06-63C0-9E82-55BD5794C5D2" x="572" y="402" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="2"/>
-        <sprite guid="29FE5217-0A06-0C18-7726-54B2C5B40015" x="582" y="438" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="2"/>
+        <sprite guid="5D45BA04-9AE8-BA6A-C7BB-669B2F551EFE" x="575" y="271" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="2"/>
+        <sprite guid="605C3915-475E-EFE8-702E-1D4A89FDB334" x="577" y="290" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="2"/>
+        <sprite guid="EA7CD79E-2B52-1FA2-43FD-CE92C43670B2" x="577" y="310" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="2"/>
+        <sprite guid="30B756F0-D1FB-8AAF-4074-56340E09FE21" x="572" y="331" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="2"/>
+        <sprite guid="53BEE24D-9EF3-0032-CE5A-78BC63F5C8B1" x="568" y="351" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="2"/>
+        <sprite guid="E5E155C4-5F06-63C0-9E82-55BD5794C5D2" x="575" y="374" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="2"/>
+        <sprite guid="29FE5217-0A06-0C18-7726-54B2C5B40015" x="616" y="437" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="2"/>
         <sprite guid="1983C76F-1529-BE44-A836-313C95EECA1D" x="638" y="302" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="2"/>
-        <sprite guid="706389A0-45F9-DBE5-C0B5-10031BCD93BC" x="635" y="326" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="2"/>
-        <sprite guid="6FE30A9D-6476-8AB1-C185-0F035812116A" x="631" y="347" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="2"/>
-        <sprite guid="CAD4F5C2-38F5-5507-4825-2B1B219EAF1A" x="638" y="371" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="2"/>
-        <sprite guid="4F06A18D-6255-A0F0-6C9D-097A20D30B0E" x="627" y="395" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="2"/>
-        <sprite guid="4BE2590C-444F-89EB-F8F4-3D064C728573" x="639" y="416" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="2"/>
-        <sprite guid="4716ECC4-4BE2-9F28-8926-319BD1917D07" x="614" y="431" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="2"/>
-        <sprite guid="97C64ACE-73DD-AD48-F144-42E2750F666F" x="560" y="423" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="2"/>
+        <sprite guid="706389A0-45F9-DBE5-C0B5-10031BCD93BC" x="637" y="322" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="2"/>
+        <sprite guid="6FE30A9D-6476-8AB1-C185-0F035812116A" x="636" y="341" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="2"/>
+        <sprite guid="CAD4F5C2-38F5-5507-4825-2B1B219EAF1A" x="638" y="361" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="2"/>
+        <sprite guid="4F06A18D-6255-A0F0-6C9D-097A20D30B0E" x="638" y="381" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="2"/>
+        <sprite guid="4BE2590C-444F-89EB-F8F4-3D064C728573" x="640" y="401" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="2"/>
+        <sprite guid="4716ECC4-4BE2-9F28-8926-319BD1917D07" x="638" y="422" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="2"/>
+        <sprite guid="97C64ACE-73DD-AD48-F144-42E2750F666F" x="573" y="394" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="2"/>
+        <sprite guid="E03D56E6-23AF-5751-48DA-96947470320E" x="634" y="266" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="3"/>
+        <sprite guid="D050EF54-6EEA-EB97-D76A-E5AC05D7B620" x="634" y="224" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="3"/>
+        <sprite guid="71EE6D82-00D7-2F95-3F69-907BE5AA907D" x="623" y="241" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="3"/>
+        <sprite guid="52DC5D2E-DD44-F2C6-9B4B-D6E52B574B8E" x="622" y="287" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="3"/>
+        <sprite guid="54E050AD-AD43-5AD9-CF71-6DC3CCE03031" x="561" y="234" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="3"/>
+        <sprite guid="7AE419A8-BCBD-0F21-5195-8E9963EE1DEC" x="579" y="217" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="3"/>
+        <sprite guid="35C8AF80-11D4-E20B-9FFD-3E91DBE4AC0E" x="563" y="192" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="3"/>
+        <sprite guid="0E75F009-5BDD-6B1E-632B-5BBB78CFAEED" x="578" y="173" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="3"/>
+        <sprite guid="356F54BE-ED47-59E9-812B-AC9378468B06" x="563" y="416" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="4"/>
+        <sprite guid="FF6ABC13-314E-5052-145C-8E66DE931A7B" x="563" y="439" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="4"/>
+        <sprite guid="C32A2E83-AD30-36CB-783C-ED5AF15247E2" x="600" y="423" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="4"/>
+        <sprite guid="1C36CF10-F507-2E0F-822A-9B0E50898FD3" x="596" y="441" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="4"/>
+        <sprite guid="A7AE193D-0E53-2B8D-A7A6-8DFCB4FF9A3E" x="503" y="499" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="5"/>
+        <sprite guid="513A84E8-30AA-8718-A986-94949591AD23" x="752" y="204" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="5"/>
+        <sprite guid="C2B4D6BC-CA53-5AB3-8E54-CB45B186F142" x="564" y="30" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="5"/>
+        <sprite guid="E42E8063-D5E7-E91D-777A-879EF7286524" x="628" y="89" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="5"/>
+        <sprite guid="BE7D1858-8DF9-D665-6F47-9B486A6F0576" x="697" y="269" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="5"/>
+        <sprite guid="5E2FDE57-DD2B-3A57-9229-2111EA021202" x="684" y="342" Z="0" angle="0" scaleX="1" scaleY="1" flipped="false" idx="5"/>
       </spritelayer>
     </group>
   </layers>
@@ -196,12 +214,14 @@
     <setting name="TileMapClass">FlxTilemap</setting>
     <setting name="FlixelPackage">org.flixel</setting>
     <setting name="GamePackage">com.ludumlabs.evolution</setting>
-    <setting name="MainLayer">Group1Map1</setting>
-    <setting name="LevelName">firstLevel</setting>
+    <setting name="IntermediateClass"/>
+    <setting name="BaseClassExtends"/>
     <setting name="BaseClass">BaseLevel</setting>
     <setting name="FlixelVersion">2.5</setting>
     <setting name="CSVDir">src/com/ludumlabs/evolution</setting>
     <setting name="AS3Dir">src/com/ludumlabs/evolution</setting>
+    <setting name="MainLayer">Group1Map1</setting>
+    <setting name="LevelName">firstLevel</setting>
   </exporter>
   <customPropertyTypes/>
   <guides>
