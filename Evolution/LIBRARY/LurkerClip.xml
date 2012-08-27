@@ -1,6 +1,6 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="EnemyClip" itemID="50392843-00000300" linkageExportForAS="true" linkageClassName="EnemyClip" lastModified="1346028179">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="LurkerClip" itemID="503ac2c7-000007e8" linkageExportForAS="true" linkageClassName="LurkerClip" lastModified="1346028269">
   <timeline>
-    <DOMTimeline name="EnemyClip">
+    <DOMTimeline name="LurkerClip">
       <layers>
         <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
           <frames>
@@ -11,13 +11,13 @@
                     <StrokeStyle index="1">
                       <SolidStroke scaleMode="normal" weight="2">
                         <fill>
-                          <SolidColor color="#1D6632"/>
+                          <SolidColor color="#660099"/>
                         </fill>
                       </SolidStroke>
                     </StrokeStyle>
                   </strokes>
                   <edges>
-                    <Edge strokeStyle="1" edges="!54 -126S4|126 -55!83 -67|65 -50!65 -50|83 -33!44 -29|65 -50!65 -50|44 -72!-70 -29|-49 -50!-49 -50|-70 -72!-31 -67|-49 -50!-49 -50|-31 -33!-126 69|-70 125!-74 53[1 9 76 53"/>
+                    <Edge strokeStyle="1" edges="!44 -29|65 -50!65 -50|44 -72!83 -67|65 -50!65 -50|83 -33!54 -126|126 -55!-31 -67|-49 -50!-49 -50|-31 -33!-70 -29|-49 -50!-49 -50|-70 -72!-126 69|-70 125!-74 53[1 9 76 53"/>
                     <Edge cubics="!65 -50(;65,-50 44,-72 44,-72q65 -50 44 -72);"/>
                     <Edge cubics="!83 -33(;83,-33 65,-50 65,-50q83 -33 65 -50);"/>
                     <Edge cubics="!65 -50(;65,-50 44,-29 44,-29q65 -50 44 -29);"/>
@@ -39,17 +39,17 @@
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <elements>
-                <DOMRectangleObject objectWidth="33.45" objectHeight="33.45" x="-16.95" y="-12" selected="true" lockFlag="true" topLeftRadius="4" topRightRadius="4" bottomLeftRadius="4" bottomRightRadius="4">
+                <DOMRectangleObject objectWidth="33.45" objectHeight="33.45" x="-16.95" y="-12" lockFlag="true" topLeftRadius="4" topRightRadius="4" bottomLeftRadius="4" bottomRightRadius="4">
                   <matrix>
                     <Matrix a="0.3760986328125" d="0.3760986328125" tx="0.05" ty="-1.8"/>
                   </matrix>
                   <fill>
-                    <SolidColor color="#66CCCC"/>
+                    <SolidColor color="#CC66FF"/>
                   </fill>
                   <stroke>
                     <SolidStroke scaleMode="normal" weight="2">
                       <fill>
-                        <SolidColor color="#1D6632"/>
+                        <SolidColor color="#660099"/>
                       </fill>
                     </SolidStroke>
                   </stroke>
