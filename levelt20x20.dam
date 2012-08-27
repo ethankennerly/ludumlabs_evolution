@@ -2,14 +2,14 @@
 <project>
   <version>3.0.4</version>
   <bgColor>0x999999</bgColor>
-  <viewPos x="0" y="0"/>
+  <viewPos x="NaN" y="NaN"/>
   <firstLayersTop>false</firstLayersTop>
   <spriteEntries currentId="6">
     <tileEntry name="Player" idx="1" className="PlayerSprite" image="data_src/Player.png" offsetX="0" offsetY="0" width="17" height="17" anchorX="0" anchorY="0" centerAnchor="false" boundsX="0" boundsY="0" boundsWidth="1" boundsHeight="1" constructor="" creation="" exports="true" canScale="false" canRotate="false" surfaceObject="false"/>
     <tileEntry name="Zombie" idx="2" className="BaseZombie" image="data_src/Enemy.png" offsetX="0" offsetY="0" width="17" height="17" anchorX="0" anchorY="0" centerAnchor="false" boundsX="0" boundsY="0" boundsWidth="1" boundsHeight="1" constructor="" creation="" exports="true" canScale="true" canRotate="true" surfaceObject="false"/>
-    <tileEntry name="ZippyZombie" idx="3" className="ZippyZombie" image="nethack-3.4.3-16x16.png" offsetX="112" offsetY="96" width="16" height="16" anchorX="0" anchorY="0" centerAnchor="false" boundsX="0" boundsY="0" boundsWidth="16" boundsHeight="16" constructor="" creation="" exports="true" canScale="true" canRotate="true" surfaceObject="false"/>
-    <tileEntry name="TankZombie" idx="4" className="TankZombie" image="nethack-3.4.3-16x16.png" offsetX="128" offsetY="96" width="16" height="16" anchorX="0" anchorY="0" centerAnchor="false" boundsX="0" boundsY="0" boundsWidth="16" boundsHeight="16" constructor="" creation="" exports="true" canScale="true" canRotate="true" surfaceObject="false"/>
-    <tileEntry name="LurkerZombie" idx="5" className="LurkerZombie" image="nethack-3.4.3-16x16.png" offsetX="144" offsetY="96" width="16" height="16" anchorX="0" anchorY="0" centerAnchor="false" boundsX="0" boundsY="0" boundsWidth="16" boundsHeight="16" constructor="" creation="" exports="true" canScale="true" canRotate="true" surfaceObject="false" selected="true"/>
+    <tileEntry name="ZippyZombie" idx="3" className="ZippyZombie" image="data_src/Zippy.png" offsetX="0" offsetY="0" width="15" height="15" anchorX="0" anchorY="0" centerAnchor="false" boundsX="0" boundsY="0" boundsWidth="1" boundsHeight="1" constructor="" creation="" exports="true" canScale="true" canRotate="true" surfaceObject="false"/>
+    <tileEntry name="TankZombie" idx="4" className="TankZombie" image="data_src/Tank.png" offsetX="0" offsetY="0" width="15" height="15" anchorX="0" anchorY="0" centerAnchor="false" boundsX="0" boundsY="0" boundsWidth="1" boundsHeight="1" constructor="" creation="" exports="true" canScale="true" canRotate="true" surfaceObject="false"/>
+    <tileEntry name="LurkerZombie" idx="5" className="LurkerZombie" image="data_src/Lurker.png" offsetX="0" offsetY="0" width="15" height="15" anchorX="0" anchorY="0" centerAnchor="false" boundsX="0" boundsY="0" boundsWidth="1" boundsHeight="1" constructor="" creation="" exports="true" canScale="true" canRotate="true" surfaceObject="false" selected="true"/>
   </spriteEntries>
   <layers>
     <group name="Group1" id="0" xScroll="1" yScroll="1" visible="true" open="true" locked="false" exports="true">
@@ -214,14 +214,14 @@
     <setting name="TileMapClass">FlxTilemap</setting>
     <setting name="FlixelPackage">org.flixel</setting>
     <setting name="GamePackage">com.ludumlabs.evolution</setting>
-    <setting name="IntermediateClass"/>
-    <setting name="BaseClassExtends"/>
+    <setting name="MainLayer">Group1Map1</setting>
+    <setting name="LevelName">firstLevel</setting>
     <setting name="BaseClass">BaseLevel</setting>
     <setting name="FlixelVersion">2.5</setting>
     <setting name="CSVDir">src/com/ludumlabs/evolution</setting>
     <setting name="AS3Dir">src/com/ludumlabs/evolution</setting>
-    <setting name="MainLayer">Group1Map1</setting>
-    <setting name="LevelName">firstLevel</setting>
+    <setting name="IntermediateClass"/>
+    <setting name="BaseClassExtends"/>
   </exporter>
   <customPropertyTypes/>
   <guides>
